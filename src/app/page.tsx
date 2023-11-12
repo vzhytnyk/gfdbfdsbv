@@ -1,24 +1,22 @@
 'use client';
 
-import { decrement, increment, reset } from '@/redux/features/counterSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import UndoButton from '@/components/Buttons/UndoButton';
+import GameBoard from '@/components/GameBoard/GameBoard.component';
+import styles from './page.module.css';
+import HintButton from '@/components/Buttons/HintButton';
 
 export default function Home() {
-  const count = useAppSelector((state) => state.counterReducer.value);
-  const dispatch = useAppDispatch();
-
   return (
-    <main style={{ maxWidth: 1200, marginInline: 'auto', padding: 20 }}>
-      <div style={{ marginBottom: '4rem', textAlign: 'center' }}>
-        <h4 style={{ marginBottom: 16 }}>{count}</h4>
-        <button onClick={() => dispatch(increment())}>increment</button>
-        <button
-          onClick={() => dispatch(decrement())}
-          style={{ marginInline: 16 }}
-        >
-          decrement
-        </button>
-        <button onClick={() => dispatch(reset())}>reset</button>
+    <main
+      style={{
+        background: 'linear-gradient(0deg, #784AA3 0%, #784AA3 100%), #FFF',
+        height: '100%',
+      }}
+    >
+      <GameBoard />
+      <div className={styles.buttons}>
+        <UndoButton />
+        <HintButton />
       </div>
     </main>
   );
