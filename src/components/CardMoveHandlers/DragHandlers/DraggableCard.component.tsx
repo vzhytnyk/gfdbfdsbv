@@ -47,8 +47,8 @@ function DraggableCard({
 
   // useDrag will be responsible for making an element draggable. It also expose, isDragging method to add any styles while dragging
   const [{ isDragging }, drag, dragPreview] = useDrag({
-    item: { type, card }, // item denotes the element type, unique identifier (id) and card info
-    begin: () => onDrag(card), // call the onDrag function when dragging begins
+    type, // type denotes the element type, unique identifier (id) and card info
+    item: () => [card, onDrag(card)], // item denotes the element type, unique identifier (id) and card info
     collect: (monitor: ExplicitAny) => ({
       isDragging: monitor.isDragging(),
     }),
