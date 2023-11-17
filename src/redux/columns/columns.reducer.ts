@@ -97,7 +97,7 @@ const columnsReducer = (state = INITIAL_COLUMNS, action: ActionsCreators) => {
       }
       // if the finalId is the same id of the cards that are being dragged,
       // then simply return the state, because no changes were caused
-      return state;
+      return {...state, sendBack: true};
 
     /**
      * Undo swap of columns, sends back nCards from the target column to the source column

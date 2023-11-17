@@ -23,7 +23,6 @@ function UndoButton() {
   );
 
   const handleUndo = () => {
-    console.log('undo');
     const nMoves = gamePreviousMoves.length;
     // can only undo when there are moves to go back
     if (nMoves > 0) {
@@ -118,7 +117,7 @@ function UndoButton() {
 
   return (
     <button
-      className={`joyrideUndo iconButton ${
+      className={`${
         gamePreviousMoves.length === 0 ? 'iconButtonDisabled' : ''
       } ${styles.undoButton}`}
       onClick={handleUndo}

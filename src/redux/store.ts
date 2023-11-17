@@ -20,7 +20,10 @@ export const rootReducer = {
 
 const combinedRootReducer = combineReducers(rootReducer);
 
-const loggerMiddleware = createLogger()
+const loggerMiddleware = createLogger({
+  // ...options
+  diff: true
+})
 
 export const store = createStore(combinedRootReducer,  applyMiddleware(
   loggerMiddleware 

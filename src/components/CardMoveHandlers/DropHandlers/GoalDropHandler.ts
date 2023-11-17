@@ -1,9 +1,9 @@
-import { Dispatch } from "redux";
-import { GameMove } from "@/redux/gameBoard/gameBoard.types";
-import columnsActions from "@/redux/columns/columns.actions";
-import deckActions from "@/redux/deck/deck.actions";
-import gameBoardActions from "@/redux/gameBoard/gameBoard.actions";
-import goalActions from "@/redux/goal/goal.actions";
+import { Dispatch } from 'redux';
+import { GameMove } from '@/redux/gameBoard/gameBoard.types';
+import columnsActions from '@/redux/columns/columns.actions';
+import deckActions from '@/redux/deck/deck.actions';
+import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
+import goalActions from '@/redux/goal/goal.actions';
 
 class GoalDrop {
   dispatch: Dispatch;
@@ -18,12 +18,10 @@ class GoalDrop {
    * @param fieldDropedTo field the card was dropped to (should be a goal field)
    */
   onDrop(move: GameMove, fieldDropedTo: string) {
-    if (move.cards[0]?.cardField.includes("goal")) {
+    if (move.cards[0]?.cardField.includes('goal')) {
       // goal -> goal
       // if it was a goal swap, then swap the cards from one column to the other
       this.dispatch(goalActions.swapGoals(fieldDropedTo));
-      // then reset
-      this.dispatch(goalActions.resetCardDragging());
     }
     // if the card came from the deck or from a column
     else {
@@ -32,12 +30,16 @@ class GoalDrop {
       this.dispatch(
         goalActions.addDraggingCardsToGoal(fieldDropedTo, move.cards)
       );
-
-      // then reset the values at the deck redux
-      this.dispatch(deckActions.resetCardDragging());
-      // then reset the values at the deck redux
-      this.dispatch(columnsActions.resetCardDragging());
     }
+  }
+
+  handleSendBack() {
+    // clear goal's send back state
+    this.dispatch(goalActions.resetCardDragging());
+    // then reset the values at the deck redux
+    this.dispatch(deckActions.resetCardDragging());
+    // then reset the values at the deck redux
+    this.dispatch(columnsActions.resetCardDragging());
   }
 
   /**
@@ -49,12 +51,12 @@ class GoalDrop {
   */
   handleRemoveCard(finalMove: GameMove) {
     // if the card came from the deck pile
-    if (finalMove.cards[0]?.cardField === "deckPile") {
+    if (finalMove.cards[0]?.cardField === 'deckPile') {
       // then remove the card that still is in the flipped pile and clear cardDragging state
       this.dispatch(deckActions.removeCardFromFlipped());
     } else {
       // if the card came from a column
-      if (finalMove.source.indexOf("column") === 0) {
+      if (finalMove.source.indexOf('column') === 0) {
         // then remove the card that still is in the column pile and clear cardDragging state
         this.dispatch(columnsActions.removeDraggedCardsFromColumn());
       }
@@ -64,6 +66,12 @@ class GoalDrop {
     this.dispatch(goalActions.resetCardDragging());
     // add game move
     this.dispatch(gameBoardActions.addGameMove(finalMove));
+    // clear goal's send back state
+    this.dispatch(goalActions.resetCardDragging());
+    // // then reset the values at the deck redux
+    this.dispatch(deckActions.resetCardDragging());
+    // // then reset the values at the deck redux
+    this.dispatch(columnsActions.resetCardDragging());
   }
 }
 

@@ -128,15 +128,6 @@ export const swapColumns = (
     // return all the changes made in the initial and final columns
     // the movement was valid, so sendBack is false
     // return the final value of the movement with flip
-    console.log('return', {
-      columns: {
-        ...columns,
-        [initialId]: initialCol,
-        [finalId]: finalCol
-      },
-      sendBack: false,
-      movementWithFlip
-    })
     return {
       columns: {
         ...columns,
