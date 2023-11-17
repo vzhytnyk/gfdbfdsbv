@@ -125,7 +125,7 @@ function GameBoard() {
     <DropHandler className={styles.mainPage}>
       {/* current game status display (time and moves) */}
       {/* <GamePlayInfo /> */}
-      <div style={{ height: '103.5px', width: '100%' }}></div>
+      <div style={{ height: '48.5px', width: '100%' }}></div>
 
       {/* empty spots */}
       <BoardEmptySpots />

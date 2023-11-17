@@ -9,14 +9,11 @@ export default function Home() {
   return (
     <main
       style={{
-        background: 'linear-gradient(0deg, #784AA3 0%, #784AA3 100%), #FFF',
-        height: '100%',
+        height: 'calc(100% - 55px)',
       }}
     >
+      <div>
       <GameBoard />
-      <div className={styles.buttons}>
-        <UndoButton />
-        <HintButton />
       </div>
     </main>
   );
