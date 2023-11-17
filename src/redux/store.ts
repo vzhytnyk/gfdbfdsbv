@@ -1,5 +1,5 @@
 
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { legacy_createStore as createStore, combineReducers, applyMiddleware } from "redux";
 import columnsReducer from "./columns/columns.reducer";
 import deckReducer from "./deck/deck.reducer";
 import gameBoardReducer from "./gameBoard/gameBoard.reducer";
