@@ -7,7 +7,12 @@ const PrivacyPolicyContent = () => {
       <h1 className={styles.heading}>Privacy Policy</h1>
       <p className={styles.text}>
         This privacy notice discloses the privacy practices for&nbsp;
-        <Link className={styles.link} href='https://worldofsolitaire.com'>
+        <Link
+          className={styles.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://worldofsolitaire.com'
+        >
           https://worldofsolitaire.com
         </Link>
         . It applies solely to information collected by this website. It will
@@ -33,7 +38,12 @@ const PrivacyPolicyContent = () => {
         information to anyone.We partner with Google Analytics to monitor the
         traffic that visits this website.You can learn how Google uses this
         information by visiting:&nbsp;
-        <Link className={styles.link} href='https://policies.google.com/?hl=en'>
+        <Link
+          className={styles.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://policies.google.com/?hl=en'
+        >
           https://policies.google.com/?hl=en
         </Link>
         . This information is used to better manage the website. This
@@ -45,16 +55,24 @@ const PrivacyPolicyContent = () => {
         You may opt-out of interest based advertising here: &nbsp;
         <Link
           className={styles.link}
+          target='_blank'
+          rel='noopener noreferrer'
           href='http://optout.networkadvertising.org/?c=1#!/'
         >
           http://optout.networkadvertising.org/?c=1#!/
         </Link>
-        . We partner with Freestar to show advertising on this website.You
-        can learn about Freestar's data policies and opt-out of interest based
+        . We partner with Freestar to show advertising on this website.You can
+        learn about Freestar's data policies and opt-out of interest based
         advertising here:&nbsp;
-        <Link className={styles.link} href='https://freestar.io/data-policy/#'>
+        <Link
+          className={styles.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://freestar.io/data-policy/#'
+        >
           https://freestar.io/data-policy/#
-        </Link>.
+        </Link>
+        .
       </p>
       <p className={styles.text}>
         Cookies. We use "cookies" on this site. A cookie is a piece of data

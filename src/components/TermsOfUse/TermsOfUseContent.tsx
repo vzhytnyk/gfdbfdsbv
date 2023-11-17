@@ -32,7 +32,12 @@ const termsOfUseContent = () => {
         information to anyone.We partner with Google Analytics to monitor the
         traffic that visits this website.You can learn how Google uses this
         information by visiting:&nbsp;
-        <Link className={styles.link} href='https://policies.google.com/?hl=en'>
+        <Link
+          className={styles.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://policies.google.com/?hl=en'
+        >
           https://policies.google.com/?hl=en
         </Link>
         . This information is used to better manage the website. This
@@ -44,6 +49,8 @@ const termsOfUseContent = () => {
         You may opt-out of interest based advertising here: &nbsp;
         <Link
           className={styles.link}
+          target='_blank'
+          rel='noopener noreferrer'
           href='http://optout.networkadvertising.org/?c=1#!/'
         >
           http://optout.networkadvertising.org/?c=1#!/
@@ -51,7 +58,12 @@ const termsOfUseContent = () => {
         . We partner with Freestar to show advertising on this website.You can
         learn about Freestar's data policies and opt-out of interest based
         advertising here:&nbsp;
-        <Link className={styles.link} href='https://freestar.io/data-policy/#'>
+        <Link
+          className={styles.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://freestar.io/data-policy/#'
+        >
           https://freestar.io/data-policy/#
         </Link>
         .
