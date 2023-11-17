@@ -97,7 +97,7 @@ function BaseEmptySpots() {
         </CardSpot>
         <CardSpot ref={flippedRef} />
         {/* Goal Spots */}
-        <CardSpot offset={3} className='joyrideGoals' />
+        <CardSpot offset={3} />
         <CardSpot />
         <CardSpot />
         <CardSpot />

@@ -121,7 +121,6 @@ function GameBoard() {
   //   useEffect(addGameToUser, [gameMoves]);
 
   // ---------------------------------------------------------
-  console.log('gameMoves', gameMoves);
   return (
     <DropHandler className={styles.mainPage}>
       {/* current game status display (time and moves) */}

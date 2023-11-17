@@ -1,5 +1,5 @@
 
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { legacy_createStore as createStore, combineReducers, applyMiddleware } from "redux";
 import columnsReducer from "./columns/columns.reducer";
 import deckReducer from "./deck/deck.reducer";
 import gameBoardReducer from "./gameBoard/gameBoard.reducer";
@@ -20,7 +20,10 @@ export const rootReducer = {
 
 const combinedRootReducer = combineReducers(rootReducer);
 
-const loggerMiddleware = createLogger()
+const loggerMiddleware = createLogger({
+  // ...options
+  diff: true
+})
 
 export const store = createStore(combinedRootReducer,  applyMiddleware(
   loggerMiddleware 

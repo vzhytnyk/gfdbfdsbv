@@ -93,6 +93,8 @@ const DropHandler = ({
       } else {
         GoalInstance.onDrop(move, fieldDropedToTemp);
       }
+    } else {
+      ColumnInstance.handleSendBack();
     }
   };
 
@@ -115,6 +117,11 @@ const DropHandler = ({
       } else if (sendBackGoal === false) {
         GoalInstance.handleRemoveCard(finalMove);
       }
+    }
+    if (sendBackColumn === true) {
+      ColumnInstance.handleSendBack();
+    } else if (sendBackGoal === true) {
+      GoalInstance.handleSendBack();
     }
   };
   useEffect(handleSendBack, [sendBackColumn, sendBackGoal]);
