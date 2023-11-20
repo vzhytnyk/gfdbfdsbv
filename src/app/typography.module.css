@@ -1,0 +1,64 @@
+/* Override default styles of basic elements */
+.heading,
+.text, .list {
+  margin-bottom: 0em;
+}
+
+.container {
+  max-width: 800px;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 3em 1.5em;
+}
+
+.heading,
+.text,
+.link,
+.list {
+  font-family: var(--font-roboto-fingtree);
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+.text,
+.link,
+.list {
+  font-size: 1.06em;
+}
+
+.heading {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.link {
+  font-size: 1.06em;
+  text-decoration-line: underline;
+}
+
+.list {
+  margin-left: 1.5em;
+}
+.list li::marker {
+  font-size: 0.9em;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 1.5em;
+  }
+
+  .heading,
+  .text,
+  .link,
+  .list {
+    font-weight: 500;
+    line-height: 1.125;
+  }
+
+  .heading {
+    font-size: 1.5em;
+  }
+}
