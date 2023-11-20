@@ -109,6 +109,7 @@
 }
 
 .cardSpot {
-  border: var(--cardBorderWidth) solid white;
+  border: var(--cardBorderWidth) solid #000;
   border-radius: var(--cardBorderRadiusOut);
+  background: #6E4197;
 }

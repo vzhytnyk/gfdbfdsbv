@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Figtree } from 'next/font/google';
-import './globals.css';
 import 'antd/dist/antd.css';
+import './globals.css';
 import { Providers } from '@/redux/provider';
 import Provider from '@/components/Provider';
 import Header from '@/components/Header/Header';
@@ -27,8 +27,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${inter.className} ${figtree.className}`}>
         <Providers>
-          <Header />
-          <Provider>{children}</Provider>
+          <Provider>
+            <Header />
+            {children}
+          </Provider>
         </Providers>
       </body>
     </html>

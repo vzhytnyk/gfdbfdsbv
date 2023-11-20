@@ -3,6 +3,8 @@ import { RootReducerState } from '@/global';
 import { useDispatch, useSelector } from 'react-redux';
 import HintHandler from '../CardMoveHandlers/DoubleClickHandlers/HintHandler';
 import DoubleClickHandler from '../CardMoveHandlers/DoubleClickHandlers/DoubleClickHandler.component';
+import styles from './Buttons.module.css';
+import HintIcon from '@/icons/HintIcon';
 
 function HintButton() {
   const dispatch = useDispatch();
@@ -34,7 +36,10 @@ function HintButton() {
   // return the button with the double click handler and wrapped in a badge with the current number of hints given
   return (
     <DoubleClickHandler handler={handler} doubleClick={false}>
-      <button>Hint</button>
+      <button className={styles.actionButton}>
+        <HintIcon />
+        <p>Hint</p>
+      </button>
     </DoubleClickHandler>
   );
 }
