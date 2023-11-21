@@ -54,7 +54,6 @@ function GameBoard() {
     goal2Pile: GameBoard.goal2Pile,
     goal3Pile: GameBoard.goal3Pile,
     goal4Pile: GameBoard.goal4Pile,
-    // savedGame: User.user.savedGame || {},
   }));
 
   // ---------------------------------------------------------
@@ -108,17 +107,6 @@ function GameBoard() {
     );
   };
   useEffect(setNewGamePiles, [deckPile]);
-
-  /**
-   * Triggered by the game moves
-   * When a *new* game starts, it is only added to the users count when at least a move is done
-   */
-  //   const addGameToUser = () => {
-  //     if (gameMoves === 1) {
-  //       dispatch(userActions.addGame());
-  //     }
-  //   };
-  //   useEffect(addGameToUser, [gameMoves]);
 
   // ---------------------------------------------------------
   return (

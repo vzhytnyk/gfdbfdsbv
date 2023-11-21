@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
   return (
     <main
       style={{
-        height: 'calc(100% - 55px)',
+        height: 'calc(100% - 57px)',
       }}
     >
       <div className={styles.container}>

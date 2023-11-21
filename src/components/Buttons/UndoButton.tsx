@@ -8,6 +8,7 @@ import deckActions from '@/redux/deck/deck.actions';
 import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import goalActions from '@/redux/goal/goal.actions';
 import styles from './Buttons.module.css';
+import UndoIcon from '@/icons/UndoIcon';
 
 /**
  * Option to undo a game move
@@ -16,9 +17,10 @@ function UndoButton() {
   const dispatch = useDispatch();
 
   // get gameMoves from redux
-  const { gamePreviousMoves } = useSelector(
+  const { gamePreviousMoves, gamePaused } = useSelector(
     ({ GameBoard }: RootReducerState) => ({
       gamePreviousMoves: GameBoard.gamePreviousMoves,
+      gamePaused: GameBoard.gamePaused,
     })
   );
 
@@ -26,6 +28,10 @@ function UndoButton() {
     const nMoves = gamePreviousMoves.length;
     // can only undo when there are moves to go back
     if (nMoves > 0) {
+      if (gamePaused) {
+        dispatch(gameBoardActions.timeGame());
+      }
+
       const { source, target, cards, movementWithFlip } =
         gamePreviousMoves[nMoves - 1];
 
@@ -118,11 +124,12 @@ function UndoButton() {
   return (
     <button
       className={`${
-        gamePreviousMoves.length === 0 ? 'iconButtonDisabled' : ''
-      } ${styles.undoButton}`}
+        gamePreviousMoves.length === 0 ? styles.iconButtonDisabled : ''
+      } ${styles.actionButton}`}
       onClick={handleUndo}
     >
-      Undo
+      <UndoIcon />
+      <p>Undo</p>
     </button>
   );
 }

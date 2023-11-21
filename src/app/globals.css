@@ -8,9 +8,9 @@
 --hoverElemColor: rgba(0, 0, 0, 0.4);
 
 /*  SIZES */
---cardBorderRadiusOut: 9%;
+--cardBorderRadiusOut: 8%;
 --cardBorderRadiusIn: 7%;
---cardBorderWidth: 0.25em;
+--cardBorderWidth: 0.15em;
 --limitVertical: 20px;
 --limitHorizontal: 40px;
 
@@ -37,3 +37,6 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin-bottom: 0;
+}
