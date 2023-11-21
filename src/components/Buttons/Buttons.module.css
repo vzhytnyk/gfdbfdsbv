@@ -1,3 +1,49 @@
-.undoButton {
+.newButton {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
 
+  position: relative;
+  width: 80px;
+  height: 33px;
+  color: #fff;
+  font-size: 16.3px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.newButtonBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.actionButton {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+
+  color: #cbcdd4;
+  font-size: 16.343px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.actionButton p {
+  margin-left: 4.5px;
+}
+
+.iconButtonDisabled {
+  pointer-events: none;
 }

@@ -1,9 +1,24 @@
 .header {
-    height: 55px;
-    background: #462B5F;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    display: flex;
-    align-items: center;
-    padding: 0 18px;
+  height: 57px;
+  background: #462b5f;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+}
+
+.border {
+  height: 100%;
+  width: 2px;
+  background: #000;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 73.7px;
+  height: 24px;
+  margin-right: 68px;
 }

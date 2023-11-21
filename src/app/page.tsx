@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <main
       style={{
-        height: 'calc(100% - 55px)',
+        height: 'calc(100% - 57px)',
       }}
     >
-      <div>
-      <GameBoard />
+      <div style={{ maxWidth: '70%' }}>
+        <GameBoard />
       </div>
     </main>
   );

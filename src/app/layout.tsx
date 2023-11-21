@@ -1,12 +1,17 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import { Inter, Figtree } from 'next/font/google';
 import 'antd/dist/antd.css';
+import './globals.css';
 import { Providers } from '@/redux/provider';
 import Provider from '@/components/Provider';
 import Header from '@/components/Header/Header';
 
 const inter = Inter({ subsets: ['latin'] });
+
+const figtree = Figtree({
+  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,10 +25,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${figtree.className}`}>
         <Providers>
-          <Header/>
-          <Provider>{children}</Provider>
+          <Provider>
+            <Header />
+            {children}
+          </Provider>
         </Providers>
       </body>
     </html>

@@ -1,4 +1,3 @@
-
 import { legacy_createStore as createStore, combineReducers, applyMiddleware } from "redux";
 import columnsReducer from "./columns/columns.reducer";
 import deckReducer from "./deck/deck.reducer";
@@ -26,7 +25,7 @@ const loggerMiddleware = createLogger({
 })
 
 export const store = createStore(combinedRootReducer,  applyMiddleware(
-  loggerMiddleware 
+  loggerMiddleware
 ));
 
 export type RootState = ReturnType<typeof store.getState>;
