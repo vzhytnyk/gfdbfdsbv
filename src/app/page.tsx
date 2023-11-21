@@ -12,7 +12,7 @@ export default function Home() {
         height: 'calc(100% - 57px)',
       }}
     >
-      <div>
+      <div style={{ maxWidth: '70%' }}>
         <GameBoard />
       </div>
     </main>
