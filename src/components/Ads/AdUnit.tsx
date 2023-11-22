@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
@@ -15,6 +15,7 @@ type AdUnitProps = {
   layout: AdLayout;
   customLayout?: JSX.Element;
   comment?: string;
+  className?: string;
 };
 
 /**
@@ -29,6 +30,7 @@ const AdUnit = ({
   layout = 'display',
   customLayout,
   comment = 'regular',
+  className
 }: AdUnitProps): JSX.Element | null => {
   const _publisherId =
     process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID ?? publisherId;
@@ -46,7 +48,13 @@ const AdUnit = ({
 
   switch (layout) {
     case 'display':
-      Ad = <AdLayout_Display dataAdClient={clientId} dataAdSlot={slotId} />;
+      Ad = (
+        <AdLayout_Display
+          dataAdClient={clientId}
+          dataAdSlot={slotId}
+          responsive
+        />
+      );
       break;
     case 'in-article':
       Ad = <AdLayout_InArticle dataAdClient={clientId} dataAdSlot={slotId} />;
@@ -77,6 +85,7 @@ const AdUnit = ({
         '-' +
         comment.replace(' ', '-')
       }
+      className={className}
     >
       {Ad}
       <Script id='next-google-adsense' strategy='afterInteractive'>
@@ -87,4 +96,3 @@ const AdUnit = ({
 };
 
 export { AdUnit };
-
