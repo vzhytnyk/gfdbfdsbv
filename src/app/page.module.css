@@ -51,7 +51,9 @@
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
+  transition:
+    background 200ms,
+    border 200ms;
 }
 
 .card span {
@@ -225,5 +227,62 @@
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+.boardWithAdsContainer {
+  display: flex;
+  height: 100%;
+}
+
+.boardContainer {
+  width: 100%;
+  height: 100%;
+  max-width: calc(100% - 325px);
+}
+
+.adsContainer {
+  margin-top: 1.375em;
+  margin-right: 1.875em;
+  width: 295px;
+}
+
+.adUnitBig,
+.adUnitSm {
+  width: 100%;
+}
+
+.adUnitBig {
+  height: 595px;
+  background: white;
+}
+
+.adUnitSm {
+  margin-top: 24px;
+  height: 167px;
+  background: white;
+}
+
+@media (max-width: 900px) {
+  .boardWithAdsContainer {
+    flex-flow: column;
+  }
+  .boardContainer {
+    max-width: 100%;
+  }
+  .adUnitSm {
+    display: none;
+  }
+}
+
+@media (max-height: 870px) {
+  .adUnitSm {
+    display: none;
+  }
+}
+
+@media (max-height: 650px) {
+  .adUnitBig {
+    height: calc(100vh - 90px);
   }
 }
