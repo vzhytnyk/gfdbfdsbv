@@ -5,6 +5,7 @@ import './globals.css';
 import { Providers } from '@/redux/provider';
 import Provider from '@/components/Provider';
 import Header from '@/components/Header/Header';
+import SEO from '@/components/SEO/SEO';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,6 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <head>
+        <SEO />
+      </head>
       <body className={`${inter.className} ${figtree.className}`}>
         <Providers>
           <Provider>
