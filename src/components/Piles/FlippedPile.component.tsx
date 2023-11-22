@@ -22,7 +22,6 @@ function FlippedPile() {
     lastHint,
     startUndoAnimation,
     translationX,
-    translationY,
   } = useSelector(({ Deck, GameBoard }: RootReducerState) => {
     const gameHints = GameBoard.gameHints;
     const lastIndex = gameHints.length - 1;
@@ -32,14 +31,11 @@ function FlippedPile() {
       lastHint: lastIndex >= 0 ? gameHints[lastIndex] : undefined,
       startUndoAnimation: Deck.startUndoAnimation,
       translationX: -Deck.translationX,
-      translationY: -Deck.translationY - 1,
     };
   });
 
   const animationStyle = {
-    transform: `translate(${translationX}px, ${
-      deckPile?.length === 0 ? 0 : translationY
-    }px) rotateY(180deg)`,
+    transform: `translate(${translationX}px, ${0}px) rotateY(180deg)`,
   };
 
   const getCards = () => {
@@ -60,7 +56,7 @@ function FlippedPile() {
               }
             >
               <CardImage
-                image='flowers.png'
+                image='bg-purple.png'
                 directory='CardsBackPatterns'
                 additionalClassName={cardStyles.cardFlipFront}
               />

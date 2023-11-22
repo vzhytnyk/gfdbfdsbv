@@ -12,9 +12,9 @@
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform: rotateX(0deg);
-  -webkit-box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75) !important;
+  /* -webkit-box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75) !important;
   -moz-box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75) !important;
-  box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75) !important; */
 }
 
 .cardFlipFront,
@@ -39,11 +39,11 @@
   width: 140px;
   max-width: 100%;
   max-height: 100%;
-  margin-top: -1px;
+  /* margin-top: -1px; */
 }
 
 .cardAspectRatio {
-  padding-top: 142.85%;
+  padding-top: 140%;
   position: relative;
 }
 
@@ -96,6 +96,9 @@
   /* -webkit-box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75); */
+
+  
+  height: 100%;
 }
 
 .cardImage {
