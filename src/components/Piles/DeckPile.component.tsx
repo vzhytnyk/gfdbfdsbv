@@ -46,7 +46,7 @@ function DeckPile() {
           cards: [],
         })
       );
-    }, 600);
+    }, 300);
   };
 
   // renders cards components that can be flipped (with translation)

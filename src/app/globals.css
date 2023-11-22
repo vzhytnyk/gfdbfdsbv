@@ -15,7 +15,7 @@
 --limitHorizontal: 40px;
 
 /* ANIMATIONS */
---smallTransitionTime: 0.3s;
+--card-flip-transition-time: 0.3s;
 }
 
 * {

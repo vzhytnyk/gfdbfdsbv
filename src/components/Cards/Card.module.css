@@ -7,7 +7,7 @@
   perspective: 1000px;
   position: relative;
   text-align: center;
-  transition: transform 0.6s;
+  transition: transform var(--card-flip-transition-time);
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -97,7 +97,7 @@
   -moz-box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 9px 7px -9px rgba(0, 0, 0, 0.75); */
 
-  
+
   height: 100%;
 }
 
