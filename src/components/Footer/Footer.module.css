@@ -1,0 +1,34 @@
+.footer {
+  width: 100%;
+  padding: 1.063em 1.75em;
+}
+
+.footerWrapper {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 3.375em;
+}
+
+.footerLink {
+  color: #fff;
+  font-family: var(--font-roboto-fingtree);
+  font-size: 1em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+@media (max-width: 800px) {
+  .footer {
+    padding: 0.438em 1.875em 0.75em 1.875em;
+    box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  .footerWrapper {
+    gap: 2em;
+  }
+  .footerLink {
+    font-size: 0.688em;
+  }
+}

@@ -1,6 +1,7 @@
 /* Override default styles of basic elements */
 .heading,
-.text, .list {
+.text,
+.list {
   margin-bottom: 0em;
 }
 
@@ -12,6 +13,7 @@
 }
 
 .heading,
+.heading2,
 .text,
 .link,
 .list {
@@ -31,6 +33,10 @@
 .heading {
   font-size: 2em;
   margin-bottom: 0.5em;
+}
+
+.heading2 {
+  font-size: 1.5em;
 }
 
 .link {
