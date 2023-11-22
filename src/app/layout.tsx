@@ -5,6 +5,7 @@ import './globals.css';
 import { Providers } from '@/redux/provider';
 import Provider from '@/components/Provider';
 import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Provider>
             <Header />
             {children}
+            <Footer />
           </Provider>
         </Providers>
       </body>
