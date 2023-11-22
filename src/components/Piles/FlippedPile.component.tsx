@@ -56,7 +56,7 @@ function FlippedPile() {
               }
             >
               <CardImage
-                image='bg-purple.png'
+                image='bg-purple.jpg'
                 directory='CardsBackPatterns'
                 additionalClassName={cardStyles.cardFlipFront}
               />

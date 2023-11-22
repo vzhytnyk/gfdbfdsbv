@@ -32,7 +32,7 @@ export const getAllCards = () => {
         cardNumber: j,
         image: `${suits[i]}/${suits[i].toLowerCase()}${
           j < 10 ? `0${j}` : j
-        }.png` // get the corresponding image for the card created
+        }.jpg` // get the corresponding image for the card created
       } as const);
     }
   }

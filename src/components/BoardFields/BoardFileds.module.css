@@ -24,6 +24,9 @@
   .redoDeckButton:hover {
     transform: scale(1.5);
   }
+  .redoDeckButton:hover, .redoDeckButton:active {
+    background:none !important;
+  }
 
   .shakeAnimationButton {
     animation: shakeButton 0.5s;

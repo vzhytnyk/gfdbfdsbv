@@ -76,7 +76,7 @@ function CardFlippable(
           additionalClassName={styles.cardFlipFront}
         />
         <CardImage
-          image='bg-purple.png'
+          image='bg-purple.jpg'
           directory='CardsBackPatterns'
           additionalClassName={styles.cardFlipBack}
           onClick={handleFlip}
