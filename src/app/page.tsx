@@ -1,9 +1,5 @@
 'use client';
-
-import UndoButton from '@/components/Buttons/UndoButton';
 import GameBoard from '@/components/GameBoard/GameBoard.component';
-import styles from './page.module.css';
-import HintButton from '@/components/Buttons/HintButton';
 
 export default function Home() {
   return (
@@ -12,7 +8,7 @@ export default function Home() {
         height: 'calc(100% - 57px)',
       }}
     >
-      <div style={{ maxWidth: '70%' }}>
+      <div style={{ maxWidth: '80%', height: '100%' }}>
         <GameBoard />
       </div>
     </main>

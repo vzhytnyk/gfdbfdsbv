@@ -17,7 +17,6 @@ function DeckPile() {
   const {
     deckPile,
     translationX,
-    translationY,
     lastHint,
     startRedoAnimation,
     startRedoResetAnimation,
@@ -28,7 +27,6 @@ function DeckPile() {
     return {
       deckPile: Deck.deckPile,
       translationX: Deck.translationX,
-      translationY: Deck.translationY,
       lastHint: lastIndex >= 0 ? gameHints[lastIndex] : undefined,
       startRedoAnimation: Deck.startRedoAnimation,
       startRedoResetAnimation: Deck.startRedoResetAnimation,
@@ -57,7 +55,6 @@ function DeckPile() {
       lastHint &&
       lastHint.source === 'deckPile' &&
       lastHint.target === undefined;
-
     const cardsArray = deckPile?.map((card: CardType, index: number) => (
       <CardFlippable
         key={`deck_${card.id}`}
@@ -65,7 +62,7 @@ function DeckPile() {
         increase={increase}
         removeCard={() => handleDeckSwap(card.id)}
         translationX={translationX}
-        translationY={startRedoResetAnimation ? 0 : translationY}
+        translationY={0}
         redoAnimation={
           (startRedoAnimation && index === deckPile.length - 1) ||
           startRedoResetAnimation
