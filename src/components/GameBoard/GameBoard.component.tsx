@@ -121,8 +121,6 @@ function GameBoard() {
       <GameTopRow />
       {/* bottom row of the game, includes all the 7 columns */}
       <GameColumnWrapper />
-      {/* game options buttons */}
-      {/* <GameOptions /> */}
       {/* preview of the card being dragged */}
       <CustomDragLayer />
     </DropHandler>
