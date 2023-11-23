@@ -77,6 +77,7 @@ function DeckPile() {
     <SimplePile
       pileId='deckPile'
       pileCards={getCards()}
+      offset={2}
       pileClassName={`${styles.deckPileIndex} ${styles.flippedPile}`}
       insideClassName={`${styles.columnPile} deckPileMobile`}
     />
