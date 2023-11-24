@@ -1,11 +1,11 @@
 import styles from '@/app/typography.module.css';
-import TermsOfUseContent from '@/components/TermsOfUse/TermsOfUseContent';
+import Cookies from '@/components/CookiesPolicy/Cookies';
 
-export default function TermsOfUse() {
+export default function CookiesPolicy() {
   return (
     <main>
       <div className={styles.container}>
-        <TermsOfUseContent />
+        <Cookies />
       </div>
     </main>
   );

@@ -5,98 +5,78 @@ const PrivacyPolicyContent = () => {
   return (
     <>
       <h1 className={styles.heading}>Privacy Policy</h1>
-      <p className={styles.text}>
-        This privacy notice discloses the privacy practices for&nbsp;
-        <Link
-          className={styles.link}
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://worldofsolitaire.com'
-        >
-          https://worldofsolitaire.com
-        </Link>
-        . It applies solely to information collected by this website. It will
-        notify you of the following:
-      </p>
-      <ul className={styles.list}>
+      <p className={styles.text}>&nbsp;</p>
+      <p className={styles.text}>SolitaireAce.com - Privacy Policy</p>
+      <p className={styles.text}>Effective Date: August 24, 2023</p>
+      <ol className={styles.list}>
         <li>
-          What personally identifiable information is collected from you through
-          the website, how it is used and with whom it may be shared.
+          Introduction At SolitaireAce.com, we respect and are committed to
+          protecting your privacy. This Privacy Policy explains how we collect,
+          use, disclose, and safeguard your information when you visit our
+          website.
         </li>
         <li>
-          What choices are available to you regarding the use of your data.
+          Information We Collect We may collect personal identification
+          information (such as names and email addresses) and non-personal
+          identification information (such as browser name, type of computer,
+          and technical information about users' means of connection to our
+          site).
         </li>
         <li>
-          The security procedures in place to protect the misuse of your
-          information.
+          How We Use Your Information We use the information we collect from you
+          to enhance your experience on our site, respond to customer service
+          requests, send periodic emails, and improve our website.
         </li>
-        <li>How you can correct any inaccuracies in the information.</li>
-      </ul>
+        <li>
+          How We Protect Your Information: We adopt appropriate data collection,
+          storage, processing practices, and security measures to protect
+          against unauthorized access, alteration, disclosure, or destruction of
+          your personal information.
+        </li>
+        <li>
+          Sharing Your Personal Information: We do not sell, trade, or rent
+          users' personal identification information to others. We may share
+          generic aggregated demographic information not linked to personal
+          identification information regarding visitors and users with our
+          business partners.
+        </li>
+        <li>
+          Third-Party Websites Our website may contain links to other websites.
+          If you click on a third-party link, you will be directed to that site.
+          Note that we do not operate these external sites. Therefore, we
+          strongly advise you to review the Privacy Policy of these websites.
+        </li>
+        <li>
+          Changes To This Privacy Policy SolitaireAce.com can update this
+          privacy policy anytime. When we do, we will post a notification on the
+          main page of our Site. We encourage users to frequently check this
+          page for any changes to stay informed about how we are helping to
+          protect the personal information we collect.
+        </li>
+        <li>
+          Your Acceptance Of These Terms By using this Site, you signify your
+          acceptance of this policy. If you disagree with this policy, please do
+          not use our Site.
+        </li>
+        <li>
+          Contacting Us: If you have any questions about this Privacy Policy,
+          the practices of this site, or your dealings with this site, please
+          contact us at &nbsp;
+          <Link
+            className={styles.link}
+            target='_blank'
+            rel='noopener noreferrer'
+            href=' info@SolitaireAce.com'
+          >
+            info@SolitaireAce.com
+          </Link>
+          .
+        </li>
+      </ol>
       <p className={styles.text}>
-        Information Collection, Use, and SharingWe are the sole owners of the
-        information collected on this site. We will not sell or rent this
-        information to anyone.We partner with Google Analytics to monitor the
-        traffic that visits this website.You can learn how Google uses this
-        information by visiting:&nbsp;
-        <Link
-          className={styles.link}
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://policies.google.com/?hl=en'
-        >
-          https://policies.google.com/?hl=en
-        </Link>
-        . This information is used to better manage the website. This
-        information is sometimes shared with various partners including our ad
-        parteners.Unless you ask us not to, we may contact you via email in the
-        future. We have never direct e-mailed our users before. We've only
-        replyed to e-mails sent by our users.Our advertising partners may use
-        cookies to show you interest based and non-interest based advertising.
-        You may opt-out of interest based advertising here: &nbsp;
-        <Link
-          className={styles.link}
-          target='_blank'
-          rel='noopener noreferrer'
-          href='http://optout.networkadvertising.org/?c=1#!/'
-        >
-          http://optout.networkadvertising.org/?c=1#!/
-        </Link>
-        . We partner with Freestar to show advertising on this website.You can
-        learn about Freestar's data policies and opt-out of interest based
-        advertising here:&nbsp;
-        <Link
-          className={styles.link}
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://freestar.io/data-policy/#'
-        >
-          https://freestar.io/data-policy/#
-        </Link>
-        .
+        Thank you for choosing SolitaireAce.com.United States law I will be
+        required to give out the requested user information.
       </p>
-      <p className={styles.text}>
-        Cookies. We use "cookies" on this site. A cookie is a piece of data
-        stored on a site visitor’s hard drive to help us improve your access to
-        our site and identify repeat visitors to our site. For instance, when we
-        use a cookie to identify you, we can restore your game options and show
-        you your game statistics from previous visits. Cookies can also enable
-        us to track and target the interests of our users to enhance the
-        experience on our site. This information is never shared with anyone
-        else.Some of our partners may use cookies on our site (for example,
-        advertisers). However, we have no access to or control over these
-        cookies.
-      </p>
-      <p className={styles.text}>
-        Your Access and Control Over Information:You may opt out of any future
-        contacts from us at any time. You can do the following at any time by
-        contacting us via the email address given on our website:
-      </p>
-      <ul className={styles.list}>
-        <li>See what data we have about you, if any.</li>
-        <li>Change/correct any data we have about you.</li>
-        <li>Have us delete any data we have about you.</li>
-        <li>Express any concern you have about our use of your data.</li>
-      </ul>
     </>
   );
 };

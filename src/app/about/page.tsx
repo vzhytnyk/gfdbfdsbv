@@ -1,11 +1,11 @@
 import styles from '@/app/typography.module.css';
-import TermsOfUseContent from '@/components/TermsOfUse/TermsOfUseContent';
+import About from '@/components/About/About';
 
-export default function TermsOfUse() {
+export default function AboutPage() {
   return (
     <main>
       <div className={styles.container}>
-        <TermsOfUseContent />
+        <About />
       </div>
     </main>
   );
