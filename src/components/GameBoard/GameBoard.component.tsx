@@ -113,27 +113,12 @@ function GameBoard() {
     <DropHandler className={styles.mainPage}>
       {/* current game status display (time and moves) */}
       {/* <GamePlayInfo /> */}
-      <div style={{ height: '48.5px', width: '100%' }}></div>
+      <div style={{ height: '22px', width: '100%' }} />
 
       {/* empty spots */}
       <BoardEmptySpots />
-      {/* top row of the game, includes the deck and the 4 goal spots */}
-      <GameTopRow />
-      {/* bottom row of the game, includes all the 7 columns */}
-      <GameColumnWrapper />
       {/* preview of the card being dragged */}
       <CustomDragLayer />
-      {/* <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        1
-      </div> */}
     </DropHandler>
   );
 }

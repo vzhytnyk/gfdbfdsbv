@@ -8,6 +8,8 @@ import _debounce from 'lodash.debounce';
 import deckActions from '@/redux/deck/deck.actions';
 import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import styles from './BoardFileds.module.css';
+import GameColumnWrapper from './GameColumnWrapper.component';
+import GameTopRow from './GameTopRow.component';
 
 /**
  * Base Layout with all the empty card spots
@@ -82,9 +84,9 @@ function BaseEmptySpots() {
 
   return (
     <div className={styles.baseEmptySpots} id='baseEmptySpots'>
-      <Row gutter={6} className={styles.boardDeckRow} align='middle'>
+      <Row gutter={6} className={styles.boardDeckRowWrapper} align='middle'>
         {/* Deck and Flipped piles */}
-        <CardSpot ref={deckRef}  offset={2} className={styles.deckCardSpot}>
+        <CardSpot ref={deckRef} offset={1} className={styles.deckCardSpot}>
           {/* Button to reset deck */}
           <Button
             className={`${styles.redoDeckButton} ${
@@ -101,16 +103,20 @@ function BaseEmptySpots() {
         <CardSpot />
         <CardSpot />
         <CardSpot />
+        {/* top row of the game, includes the deck and the 4 goal spots */}
+        <GameTopRow />
       </Row>
-      <Row gutter={6} align='middle' className={styles.testColumns}>
+      <Row gutter={6} align='middle' className={styles.gameColumnsWrapper}>
         {/* Game Columns */}
-        <CardSpot offset={2} />
+        <CardSpot offset={1} />
         <CardSpot />
         <CardSpot />
         <CardSpot />
         <CardSpot />
         <CardSpot />
         <CardSpot />
+        {/* bottom row of the game, includes all the 7 columns */}
+        <GameColumnWrapper />
       </Row>
     </div>
   );

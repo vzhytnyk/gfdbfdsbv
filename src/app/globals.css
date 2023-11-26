@@ -16,6 +16,9 @@
 
 /* ANIMATIONS */
 --card-flip-transition-time: 0.3s;
+
+/* --game-container-width: calc(100% - 325px); */
+--game-container-width: 77.5%; /* 1280px */
 }
 
 * {

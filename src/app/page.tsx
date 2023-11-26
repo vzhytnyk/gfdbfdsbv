@@ -6,11 +6,7 @@ import GameInfo from '@/components/Home/GameInfo';
 
 export default function Home() {
   return (
-    <main
-      style={{
-        height: 'calc(100% - 57px)',
-      }}
-    >
+    <main>
       <div className={styles.boardWithAdsContainer}>
         <div className={styles.boardContainer}>
           <GameBoard />
@@ -30,7 +26,7 @@ export default function Home() {
           />
         </div> */}
       </div>
-      <GameInfo/>
+      <GameInfo />
     </main>
   );
 }
