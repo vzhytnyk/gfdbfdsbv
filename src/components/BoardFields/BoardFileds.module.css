@@ -1,9 +1,9 @@
 
  /* Base Empty Spots */
 .baseEmptySpots {
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  right: 0;
+  right: 0; */
 }
 
 .deckCardSpot {
@@ -53,20 +53,29 @@
 
   /*  Game Column Wrapper */
 .gameColumnsRow {
-  margin: 2% 0 2% 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 !important;
 }
 
  /* Game Top Row */
 .boardDeckRow {
-  margin: 2% 0 2% 0;
-  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 !important;
 }
 
+.boardDeckRowWrapper {
+  position: relative;
+  margin: 0 0 15px 0 !important;
+}
 
-
-
-
-
-.testColumns {
+.gameColumnsWrapper {
   padding-bottom: 15%;
+  position: relative;
+  margin: 0 !important;
 }

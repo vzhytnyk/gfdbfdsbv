@@ -47,32 +47,54 @@ const DropHandler = ({
     undefined
   );
 
+  const getPileCoordinates = (pileName: string) => {
+    const padding = 5;
+    const pile = document.getElementById(pileName);
+    if (pile) {
+      const { left: initialLeft, right: initialRight } =
+        pile?.getBoundingClientRect();
+      const left = initialLeft - padding;
+      const right = initialRight + padding;
+      return { left, right };
+    }
+    return { left: 0, right: 0 };
+  };
+
   /**
    * Gets the field the card was dropped on
    * @param position {x, y} of the card when it was dropped
    */
   const getFieldToDrop = ({ x, y }: { x: number; y: number }) => {
-    // get page dimension
-    const innerWidth =
-      document.getElementById('baseEmptySpots')?.offsetWidth || 1;
     const innerHeight = window.innerHeight;
-    // get column size
-    const initialOffset = ((innerWidth / 24) * 3) / 8;
-    const columnSizes = (innerWidth - initialOffset) / 7;
 
+    const piles = ['goal1Pile', 'goal2Pile', 'goal3Pile', 'goal4Pile'];
+    const columns = [
+      'column1Pile',
+      'column2Pile',
+      'column3Pile',
+      'column4Pile',
+      'column5Pile',
+      'column6Pile',
+      'column7Pile',
+    ];
     // should drop in one of the goal spots
     if (y < innerHeight / 3.8) {
-      if (x > columnSizes * 3 + initialOffset) {
-        const goalNumber =
-          Math.ceil((x - initialOffset || 1) / columnSizes) - 3;
-        return `goal${goalNumber || 1}Pile`;
+      for (const pile of piles) {
+        const { left, right } = getPileCoordinates(pile);
+        if (x > left && x < right) {
+          return pile;
+        }
       }
       // any other result is invalid for this height
       return undefined;
     } else {
       // should drop in a column pile
-      const columnNumber = Math.ceil((x - initialOffset || 1) / columnSizes);
-      return `column${columnNumber || 1}Pile`;
+      for (const column of columns) {
+        const { left, right } = getPileCoordinates(column);
+        if (x > left && x < right) {
+          return column;
+        }
+      }
     }
   };
 

@@ -24,7 +24,7 @@
     z-index: 100;
     left: 0;
     top: 0;
-    width: 80%;
+    width: var(--game-container-width);
     height: 100%;
   }
 
