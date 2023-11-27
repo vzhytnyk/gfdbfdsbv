@@ -43,7 +43,7 @@ function UndoButton() {
           setTimeout(() => {
             // call deck function to send back a flipped card to the deck pile
             dispatch(deckActions.undoFlipDeckPile());
-          }, 600);
+          }, 200);
           // flipped -> deck
         } else if (target.includes('goal')) {
           // goal pile -> deck
@@ -113,7 +113,7 @@ function UndoButton() {
         dispatch(deckActions.startRedoResetAnimation());
         setTimeout(() => {
           dispatch(deckActions.undoResetDeck());
-        }, 600);
+        }, 200);
       }
 
       // remove the movement from the moves array

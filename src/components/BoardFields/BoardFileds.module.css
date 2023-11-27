@@ -13,7 +13,7 @@
   }
 
   .redoDeckButton {
-    background: transparent;
+    background: transparent !important;
     border: none;
     color: white;
     height: auto;
@@ -23,9 +23,6 @@
   
   .redoDeckButton:hover {
     transform: scale(1.5);
-  }
-  .redoDeckButton:hover, .redoDeckButton:active {
-    background:none !important;
   }
 
   .shakeAnimationButton {

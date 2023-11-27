@@ -1,4 +1,3 @@
-
 /* CardFlippable */
 .cardFlipContainer {
   width: 100%;
@@ -87,8 +86,6 @@
   border: 1.579px solid #000500;
   border-radius: var(--cardBorderRadiusOut);
   cursor: pointer;
-  background-color: white;
-
 
   height: 100%;
 }
@@ -99,7 +96,7 @@
   border-radius: var(--cardBorderRadiusIn);
 }
 
- /* CardSpot */
+/* CardSpot */
 .cardSpotCol {
   z-index: 0;
 }
@@ -107,5 +104,64 @@
 .cardSpot {
   border: var(--cardBorderWidth) solid #000;
   border-radius: var(--cardBorderRadiusOut);
-  background: #6E4197;
+  background: #6e4197;
+}
+
+.threeCardModeContainer .cardContainer {
+  margin-top: 0px !important;
+}
+
+.threeCardModeContainer .lastInRow .cardAspectRatio {
+  animation: threeCardAnimationFirst 0.2s forwards;
+}
+.threeCardModeContainer .prevInRow .cardAspectRatio {
+  animation: threeCardAnimationPrevious 0.2s forwards;
+}
+
+@keyframes threeCardAnimationFirst {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 40px;
+  }
+}
+
+@keyframes threeCardAnimationPrevious {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 20px;
+  }
+}
+
+.threeCardModeContainer
+  .animationStyleUndo:nth-last-child(3n + 1)
+  .cardAspectRatio {
+  animation: threeCardAnimationFirstUndo 0.2s forwards;
+}
+
+.threeCardModeContainer
+  .animationStyleUndo:nth-last-child(3n + 2)
+  .cardAspectRatio {
+  animation: threeCardAnimationPreviousUndo 0.2s forwards;
+}
+
+@keyframes threeCardAnimationFirstUndo {
+  from {
+    left: 40px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes threeCardAnimationPreviousUndo {
+  from {
+    left: 20px;
+  }
+  to {
+    left: 0px;
+  }
 }

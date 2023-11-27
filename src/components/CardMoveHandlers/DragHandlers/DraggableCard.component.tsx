@@ -22,6 +22,7 @@ interface DraggableCardProps {
   onDoubleClick?: () => void; // function called when card is double clicked
   index?: number;
   shake?: boolean;
+  className?: string;
 }
 
 /**
@@ -34,6 +35,7 @@ function DraggableCard({
   index = 0,
   shake,
   children,
+  className
 }: PropsWithChildren<DraggableCardProps>) {
   const dispatch = useDispatch();
 
@@ -92,7 +94,7 @@ function DraggableCard({
     <CardFrame
       ref={drag}
       onDoubleClick={onDoubleClick}
-      cardContainerClassName={`${index > 0 ? styles.cardContainerColumns : ''}`}
+      cardContainerClassName={`${index > 0 ? styles.cardContainerColumns : ''} ${className}`}
       shake={shake}
     >
       {children || (

@@ -1,6 +1,7 @@
 import React, { ReactElement, memo } from 'react';
 import { Col } from 'antd';
 import styles from './Piles.module.css';
+import cardStyles from '@/components/Cards/Card.module.css';
 
 interface SimplePileProps {
   pileCards: Array<ReactElement>;
@@ -8,6 +9,7 @@ interface SimplePileProps {
   offset?: number;
   pileClassName?: string;
   insideClassName?: string;
+  threeCardMode?: boolean;
 }
 
 /**
@@ -19,11 +21,18 @@ function SimplePile({
   offset,
   pileClassName = '',
   insideClassName = '',
+  threeCardMode,
 }: SimplePileProps) {
   return (
     <Col id={pileId} span={3} offset={offset} className={pileClassName}>
       <div className={insideClassName}>
-        <div className={styles.cardPileContainer}>{pileCards}</div>
+        <div
+          className={`${styles.cardPileContainer} ${
+            threeCardMode ? cardStyles.threeCardModeContainer : ''
+          }`}
+        >
+          {pileCards}
+        </div>
       </div>
     </Col>
   );

@@ -46,7 +46,7 @@ function DeckPile() {
           cards: [],
         })
       );
-    }, 300);
+    }, 200);
   };
 
   // renders cards components that can be flipped (with translation)
@@ -64,7 +64,8 @@ function DeckPile() {
         translationX={translationX}
         translationY={0}
         redoAnimation={
-          (startRedoAnimation && index === deckPile.length - 1) ||
+          (startRedoAnimation && index >= deckPile.length - 3) ||
+          // (startRedoAnimation && index === deckPile.length - 1) ||
           startRedoResetAnimation
         }
       />
