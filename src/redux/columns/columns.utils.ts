@@ -11,9 +11,12 @@ import { CardType } from "../gameBoard/gameBoard.types";
  * @param finalCard final card of the column to add the first card
  */
 export const isValidMovement = (firstCard: CardType, finalCard?: CardType) => {
-  // if the column has no cards, then simply return true
+  // if the column has no cards, then it should be the thirteenth(King) number
   if (!finalCard) {
-    return true;
+    if (firstCard.cardNumber === 13) {
+      return true;
+    }
+    return false;
   }
   // if the cards have the same color, then return false
   if (firstCard.cardColor === finalCard.cardColor) {
