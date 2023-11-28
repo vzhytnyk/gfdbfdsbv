@@ -8,6 +8,7 @@ interface SimplePileProps {
   offset?: number;
   pileClassName?: string;
   insideClassName?: string;
+  cardsListClassName?: string;
 }
 
 /**
@@ -19,11 +20,14 @@ function SimplePile({
   offset,
   pileClassName = '',
   insideClassName = '',
+  cardsListClassName,
 }: SimplePileProps) {
   return (
     <Col id={pileId} span={3} offset={offset} className={pileClassName}>
       <div className={insideClassName}>
-        <div className={styles.cardPileContainer}>{pileCards}</div>
+        <div className={`${styles.cardPileContainer} ${cardsListClassName}`}>
+          {pileCards}
+        </div>
       </div>
     </Col>
   );

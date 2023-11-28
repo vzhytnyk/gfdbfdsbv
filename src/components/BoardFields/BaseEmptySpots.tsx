@@ -17,8 +17,8 @@ import GameTopRow from './GameTopRow.component';
 function BaseEmptySpots() {
   const dispatch = useDispatch();
   // get refs from redux
-  const { deckRef, flippedRef, lastHint } = useSelector(
-    ({ Deck, GameBoard }: RootReducerState) => {
+  const { deckRef, flippedRef, lastHint, gameMode } = useSelector(
+    ({ Deck, GameBoard, GameConfig }: RootReducerState) => {
       const gameHints = GameBoard.gameHints;
       const lastIndex = gameHints.length - 1;
       return {
@@ -27,6 +27,7 @@ function BaseEmptySpots() {
         flippedRef:
           typeof Deck.flippedRef === 'function' ? Deck.flippedRef() : undefined,
         lastHint: lastIndex >= 0 ? gameHints[lastIndex] : undefined,
+        gameMode: GameConfig.gameMode,
       };
     }
   );
@@ -67,7 +68,7 @@ function BaseEmptySpots() {
   const handleResetDeck = () => {
     // resets the deck
     dispatch(deckActions.startUndoAnimation());
-    setTimeout(() => dispatch(deckActions.resetDeck()), 600);
+    setTimeout(() => dispatch(deckActions.resetDeck(gameMode)), 200);
     // adds one movement to the game
     dispatch(
       gameBoardActions.addGameMove({

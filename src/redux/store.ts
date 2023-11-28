@@ -5,7 +5,8 @@ import gameBoardReducer from "./gameBoard/gameBoard.reducer";
 import goalReducer from "./goal/goal.reducer";
 import pagesReducer from "./pages/pages.reducer";
 import highscoreReducer from "./highScores/highscores.reducer";
-import { createLogger } from 'redux-logger'
+import gameConfigReducer from "./gameConfig/gameConfig.reducer";
+import { createLogger } from 'redux-logger';
 
 
 export const rootReducer = {
@@ -15,6 +16,7 @@ export const rootReducer = {
   Goal: goalReducer,
   Pages: pagesReducer,
   HighScores: highscoreReducer,
+  GameConfig: gameConfigReducer
 };
 
 const combinedRootReducer = combineReducers(rootReducer);

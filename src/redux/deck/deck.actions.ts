@@ -1,5 +1,6 @@
 import { ExplicitAny, ValueOf } from "../../global";
 import { CardType } from "../gameBoard/gameBoard.types";
+import { GameModeTypes } from "../gameConfig/gameConfig.types";
 import DeckActionTypes from "./deck.types";
 
 // ********************************************************
@@ -11,11 +12,13 @@ import DeckActionTypes from "./deck.types";
  */
 const setInitialDeck = (
   deckPile: Array<CardType>,
-  flippedPile: Array<CardType>
+  flippedPile: Array<CardType>,
+  turnThreeMode?: boolean
 ) => ({
   type: DeckActionTypes.SET_INITIAL_DECK,
   deckPile,
-  flippedPile
+  flippedPile,
+  turnThreeMode
 });
 
 /**
@@ -44,29 +47,33 @@ const setTranslation = (translation: number) => ({
 /**
  * Flips one card from the deck pile to the flipped pile
  */
-const flipDeckPile = () => ({
-  type: DeckActionTypes.FLIP_DECK_PILE
+const flipDeckPile = (gameMode: GameModeTypes) => ({
+  type: DeckActionTypes.FLIP_DECK_PILE,
+  gameMode
 });
 
 /**
  * Flips one card back from the flipped pile to the deck pile
  */
-const undoFlipDeckPile = () => ({
-  type: DeckActionTypes.UNDO_FLIP_DECK_PILE
+const undoFlipDeckPile = (nCards: Array<CardType>) => ({
+  type: DeckActionTypes.UNDO_FLIP_DECK_PILE,
+  nCards
 });
 
 /**
  * Resets the deck, setting all the flipped cards back to the deck
  */
-const resetDeck = () => ({
-  type: DeckActionTypes.RESET_DECK
+const resetDeck = (gameMode: GameModeTypes) => ({
+  type: DeckActionTypes.RESET_DECK,
+  gameMode
 });
 
 /**
  * Undoes the deck reset, setting all the deck cards to the flipped pile
  */
-const undoResetDeck = () => ({
-  type: DeckActionTypes.UNDO_RESET_DECK
+const undoResetDeck = (gameMode: GameModeTypes) => ({
+  type: DeckActionTypes.UNDO_RESET_DECK,
+  gameMode
 });
 
 // ********************************************************

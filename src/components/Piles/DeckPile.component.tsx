@@ -7,6 +7,7 @@ import deckActions from '@/redux/deck/deck.actions';
 import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import CardFlippable from '../Cards/CardFlippable';
 import styles from './Piles.module.css';
+import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
 
 /**
  * Component that consists of a pile (3d) of unflipped cards that can be flipped one by one (with a translation)
@@ -20,7 +21,8 @@ function DeckPile() {
     lastHint,
     startRedoAnimation,
     startRedoResetAnimation,
-  } = useSelector(({ Deck, GameBoard }: RootReducerState) => {
+    gameMode,
+  } = useSelector(({ Deck, GameBoard, GameConfig }: RootReducerState) => {
     const gameHints = GameBoard.gameHints;
     const lastIndex = gameHints.length - 1;
 
@@ -30,23 +32,37 @@ function DeckPile() {
       lastHint: lastIndex >= 0 ? gameHints[lastIndex] : undefined,
       startRedoAnimation: Deck.startRedoAnimation,
       startRedoResetAnimation: Deck.startRedoResetAnimation,
+      gameMode: GameConfig.gameMode as GameModeTypes,
     };
   });
+
+  const cardsToRegisterInMove = () => {
+    //Register three card for turn 3 and one for default mode
+    return gameMode === 'turnThree' ? -3 : -1;
+  };
 
   // swap from deck to flipped pile
   const handleDeckSwap = async (cardId: number) => {
     // wait for the css animation to end
     setTimeout(() => {
-      dispatch(deckActions.flipDeckPile());
+      dispatch(deckActions.flipDeckPile(gameMode));
       // add one movement of the game
       dispatch(
         gameBoardActions.addGameMove({
           source: 'deckPile',
           target: 'flippedPile',
-          cards: [],
+          cards: deckPile.splice(cardsToRegisterInMove()) || [],
         })
       );
-    }, 300);
+    }, 200);
+  };
+
+  const getRedoByGameMode = (index: number) => {
+    let itemsToUndo = 1;
+    if (gameMode === 'turnThree') {
+      itemsToUndo = 3;
+    }
+    return startRedoAnimation && index === deckPile.length - itemsToUndo;
   };
 
   // renders cards components that can be flipped (with translation)
@@ -63,10 +79,7 @@ function DeckPile() {
         removeCard={() => handleDeckSwap(card.id)}
         translationX={translationX}
         translationY={0}
-        redoAnimation={
-          (startRedoAnimation && index === deckPile.length - 1) ||
-          startRedoResetAnimation
-        }
+        redoAnimation={getRedoByGameMode(index) || startRedoResetAnimation}
       />
     ));
     return cardsArray;

@@ -85,7 +85,7 @@ const deckReducer = (state = INITIAL_DECK, action: ActionsCreators) => {
      *    - calculates the difference of cards between the two piles and updates the translation y
      */
     case DeckActionTypes.FLIP_DECK_PILE:
-      const flipResult = flipDeckCard(state.deckPile, state.flippedPile);
+      const flipResult = flipDeckCard(state.deckPile, state.flippedPile, action.gameMode);
       return {
         ...state,
         ...flipResult
@@ -98,7 +98,7 @@ const deckReducer = (state = INITIAL_DECK, action: ActionsCreators) => {
      *    - calculates the difference of cards between the two piles and updates the translation y;
      */
     case DeckActionTypes.UNDO_FLIP_DECK_PILE:
-      const unflipResult = unflipDeckCard(state.deckPile, state.flippedPile);
+      const unflipResult = unflipDeckCard(state.deckPile, state.flippedPile, action.nCards);
       return {
         ...state,
         ...unflipResult
@@ -114,7 +114,8 @@ const deckReducer = (state = INITIAL_DECK, action: ActionsCreators) => {
       const resetResult = resetDeck(
         "flippedPile",
         "deckPile",
-        state.flippedPile
+        state.flippedPile,
+        action.gameMode
       );
       return {
         ...state,
@@ -133,6 +134,7 @@ const deckReducer = (state = INITIAL_DECK, action: ActionsCreators) => {
         "deckPile",
         "flippedPile",
         state.deckPile,
+        action.gameMode,
         true
       );
       return {

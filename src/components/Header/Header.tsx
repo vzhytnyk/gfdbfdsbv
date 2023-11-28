@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './Header.module.css';
 import TurnOne from '@/icons/TurnOne';
@@ -8,7 +10,50 @@ import RestartButton from '../Buttons/RestartButton';
 import UndoButton from '../Buttons/UndoButton';
 import PauseButton from '../Buttons/PauseButton';
 import HintButton from '../Buttons/HintButton';
+import { useSelector } from 'react-redux';
+import { RootReducerState } from '@/global';
+import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
+import { useRouter } from 'next/navigation';
 const Header = () => {
+  const router = useRouter();
+  const { gameMode, gameMoves } = useSelector(
+    ({ GameConfig, GameBoard }: RootReducerState) => ({
+      gameMode: GameConfig.gameMode as GameModeTypes,
+      gameMoves: GameBoard.gameMoves,
+    })
+  );
+  const showUnsavedWarning = () => {
+    return confirm('You have unsaved changes');
+  };
+
+  const navigateToOtherGameMode = (gameMode: GameModeTypes) => {
+    if (gameMode === 'turnThree') {
+      router.push('/turn-3');
+      return;
+    }
+    router.push('/');
+  };
+
+  const onChangeGameMode = (newMode: GameModeTypes) => {
+    if (newMode === gameMode) {
+      return;
+    }
+    if (!gameMoves) {
+      navigateToOtherGameMode(newMode);
+      return;
+    }
+    if (showUnsavedWarning()) {
+      navigateToOtherGameMode(newMode);
+    }
+  };
+
+  const getCardModeColor = (btnMode: GameModeTypes) => {
+    if (gameMode === btnMode) {
+      return '#ffffff';
+    }
+    return '#9B69C9';
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.innerWrapper}>
@@ -33,9 +78,15 @@ const Header = () => {
           />
         </div>
         <div className={styles.cards}>
-          <TurnOne />
+          <TurnOne
+            onClick={() => onChangeGameMode('default')}
+            fill={getCardModeColor('default')}
+          />
           <div className={styles.border} />
-          <TurnThree />
+          <TurnThree
+            onClick={() => onChangeGameMode('turnThree')}
+            fill={getCardModeColor('turnThree')}
+          />
         </div>
         <div className={styles.newButtonWrapper}>
           <NewButton />

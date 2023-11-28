@@ -9,6 +9,7 @@ import styles from './Piles.module.css';
 import cardStyles from '../Cards/Card.module.css';
 import DraggableCard from '../CardMoveHandlers/DragHandlers/DraggableCard.component';
 import CardImage from '../Cards/CardImage';
+import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
 
 /**
  * Component that consists of a pile (3d) of flipped cards that can be dragged
@@ -22,7 +23,8 @@ function FlippedPile() {
     lastHint,
     startUndoAnimation,
     translationX,
-  } = useSelector(({ Deck, GameBoard }: RootReducerState) => {
+    gameMode,
+  } = useSelector(({ Deck, GameBoard, GameConfig }: RootReducerState) => {
     const gameHints = GameBoard.gameHints;
     const lastIndex = gameHints.length - 1;
     return {
@@ -31,6 +33,7 @@ function FlippedPile() {
       lastHint: lastIndex >= 0 ? gameHints[lastIndex] : undefined,
       startUndoAnimation: Deck.startUndoAnimation,
       translationX: -Deck.translationX,
+      gameMode: GameConfig.gameMode as GameModeTypes,
     };
   });
 
@@ -42,18 +45,54 @@ function FlippedPile() {
     return flippedPile?.map((card: CardType, index: number) => {
       const handler = new DeckDoubleClickHandler(dispatch, card);
       const shake = lastHint && lastHint.source === 'flippedPile';
+      const isUndoItemForAnimation = () => {
+        if (gameMode === 'turnThree') {
+          return index >= flippedPile.length - 3 || deckPile.length === 0;
+        } else {
+          return index === flippedPile.length - 1 || deckPile.length === 0;
+        }
+      };
+
+      const runUndoAnimation = startUndoAnimation && isUndoItemForAnimation();
+      const classAnimationName = () => {
+        if (gameMode === 'default') {
+          return;
+        }
+        if (flippedPile.length < 3) {
+          if (index % 3 === 1) {
+            return cardStyles.prevInRow;
+          }
+          if (index % 3 === 2) {
+            return cardStyles.prevInRow;
+          }
+          return;
+        }
+        if ((flippedPile.length - 1 - index) % 3 === 1) {
+          return cardStyles.prevInRow;
+        }
+        if ((flippedPile.length - 1 - index) % 3 === 0) {
+          return cardStyles.lastInRow;
+        }
+      };
       return (
-        <DoubleClickHandler key={card.id} handler={handler} doubleClick>
-          <DraggableCard card={card} nCards={1} shake={shake}>
+        <DoubleClickHandler
+          key={card.id}
+          handler={handler}
+          doubleClick={index === flippedPile.length - 1}
+        >
+          <DraggableCard
+            index={index}
+            card={card}
+            nCards={1}
+            shake={shake}
+            className={`${
+              runUndoAnimation ? cardStyles.animationStyleUndo : ''
+            } ${classAnimationName() || ''}`}
+          >
             <div
               className={cardStyles.cardFlipContainer}
               // eslint-disable-next-line react/forbid-dom-props
-              style={
-                startUndoAnimation &&
-                (index === flippedPile.length - 1 || deckPile.length === 0)
-                  ? animationStyle
-                  : {}
-              }
+              style={runUndoAnimation ? animationStyle : {}}
             >
               <CardImage
                 image='bg-purple.jpg'
@@ -71,10 +110,14 @@ function FlippedPile() {
       );
     });
   };
-
   // return a pile of flipped cards
   return (
     <SimplePile
+      cardsListClassName={
+        gameMode === 'turnThree'
+          ? cardStyles.threeCardModeContainer
+          : cardStyles.signCardModeContainer
+      }
       pileId='flippedPile'
       pileCards={getCards()}
       pileClassName={`${styles.deckPile} ${styles.flippedPile}`}
