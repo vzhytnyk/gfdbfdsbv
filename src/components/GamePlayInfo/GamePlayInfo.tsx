@@ -10,7 +10,7 @@ const GamePlayInfo = () => {
   }));
 
   // use the timer to get the current time units
-  // const { seconds, minutes, hours } = useTimer();
+  const { seconds, minutes, hours } = useTimer();
 
   const gameScore = gameMoves * 5;
 
@@ -19,9 +19,9 @@ const GamePlayInfo = () => {
       <div>
         <p className={styles.heading}>Time</p>
         <p className={styles.value}>
-          {/* {hours > 0 ? `${hours}:` : null}
+          {hours > 0 ? `${hours}:` : null}
           {minutes < 10 ? `0${minutes}` : minutes}:
-          {seconds < 10 ? `0${seconds}` : seconds} */}
+          {seconds < 10 ? `0${seconds}` : seconds}
         </p>
       </div>
       <div className={styles.border} />
