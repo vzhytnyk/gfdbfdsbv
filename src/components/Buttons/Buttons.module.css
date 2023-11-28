@@ -41,10 +41,17 @@
 }
 
 .actionButton p {
-  margin-left: 4.5px;
-  margin-bottom: 0;
+  display: none;
 }
 
 .iconButtonDisabled {
   pointer-events: none;
+}
+
+@media screen and (width >= 1024px) {
+  .actionButton p {
+    display: block;
+    margin-left: 4.5px;
+    margin-bottom: 0;
+  }
 }
