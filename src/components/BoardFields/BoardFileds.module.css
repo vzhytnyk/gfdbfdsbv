@@ -1,9 +1,7 @@
 
  /* Base Empty Spots */
 .baseEmptySpots {
-  /* position: absolute;
-  left: 0;
-  right: 0; */
+  margin-left: 30px
 }
 
 .deckCardSpot {

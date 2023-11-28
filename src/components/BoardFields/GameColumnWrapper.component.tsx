@@ -24,8 +24,12 @@ function GameColumnWrapper() {
   }));
 
   return (
-    <Row gutter={6} className={styles.gameColumnsRow} align='middle'>
-      <ColumnPile columnId='column1Pile' columnCards={column1Pile} offset={1} />
+    <Row
+      className={styles.gameColumnsRow}
+      align='middle'
+      justify={'space-between'}
+    >
+      <ColumnPile columnId='column1Pile' columnCards={column1Pile} />
       <ColumnPile columnId='column2Pile' columnCards={column2Pile} />
       <ColumnPile columnId='column3Pile' columnCards={column3Pile} />
       <ColumnPile columnId='column4Pile' columnCards={column4Pile} />

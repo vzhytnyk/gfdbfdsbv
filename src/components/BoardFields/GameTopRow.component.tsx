@@ -9,7 +9,11 @@ import styles from './BoardFileds.module.css';
  */
 function GameTopRow() {
   return (
-    <Row gutter={6} className={styles.boardDeckRow} align='middle'>
+    <Row
+      className={styles.boardDeckRow}
+      align='middle'
+      justify={'space-between'}
+    >
       <Deck />
       <GoalPileWrapper />
     </Row>
