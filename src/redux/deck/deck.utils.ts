@@ -1,4 +1,5 @@
 import { CardType } from "../gameBoard/gameBoard.types";
+import { GameModeTypes } from "../gameConfig/gameConfig.types";
 
 // ********************************************************
 // HELPER FUNCTIONS
@@ -32,17 +33,20 @@ export const getTranslationY = (
  */
 export const flipDeckCard = (
   deckPile: Array<CardType>,
-  flippedPile: Array<CardType>
+  flippedPile: Array<CardType>,
+  gameMode: GameModeTypes
 ) => {
   // create copy of the deck pile
   const tempDeckPile = [...deckPile];
-  // get the top card of the deck pile
-  const cardFlipped = tempDeckPile.pop();
+  // get the top 3 cards of the deck pile
+  const cardsToFlip = gameMode === "turnThree" ? -3 : -1;
+  const cardsFlipped = tempDeckPile.splice(cardsToFlip);
   // get copy of the flipped pile
   const tempFlippedPile = [...flippedPile];
 
-  // add it to the flipped pile
-  tempFlippedPile.push({ ...cardFlipped, flipped: true } as CardType);
+  // add the flipped cards to the flipped pile
+  const flippedCards = cardsFlipped.map((card) => ({ ...card, flipped: true } as CardType));
+  tempFlippedPile.push(...flippedCards);
 
   // get the new value for the translation y
   const translationY = getTranslationY(tempDeckPile, tempFlippedPile);
@@ -62,18 +66,20 @@ export const flipDeckCard = (
  */
 export const unflipDeckCard = (
   deckPile: Array<CardType>,
-  flippedPile: Array<CardType>
+  flippedPile: Array<CardType>,
+  nCards: Array<CardType>
 ) => {
   // create copy of the flipped pile
   const tempFlippedPile = [...flippedPile];
   // get the top card of the flipped pile
-  const cardFlipped = tempFlippedPile.pop();
+  const cardsFlipped = tempFlippedPile.splice(-nCards.length);
   // get copy of the deck pile
   const tempDeckPile = [...deckPile];
 
   // if there was indeed a card to be flipped, then add it to the deck pile
-  if (cardFlipped) {
-    tempDeckPile.push({ ...cardFlipped, flipped: true });
+  if (cardsFlipped) {
+    const flippedCards = cardsFlipped.map((card) => ({ ...card, flipped: true } as CardType));
+    tempDeckPile.push(...flippedCards);
   }
 
   // get the new value for the translation y
@@ -97,18 +103,34 @@ export const resetDeck = (
   sourceId: string,
   targetId: string,
   source: Array<CardType>,
+  gameMode: GameModeTypes,
   reversed?: boolean
 ) => {
-  const final = source.map((card: CardType) => ({
+  let final = source.map((card: CardType) => ({
     ...card,
     flipped: targetId === "flippedPile"
   }));
+  console.log(gameMode)
+  if (gameMode === "turnThree") {
+    //reverse every 3 items for turn three mode
+    final = reverseChunks(final, 3);
+  }
   return {
     translationY: source.length,
     [targetId]: reversed ? final : final.reverse(),
     [sourceId]: []
   };
 };
+
+const reverseChunks = <T>(array: T[], chunkSize: number): T[] => {
+  const result: T[] = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    const chunk = array.slice(i, i + chunkSize);
+    result.push(...chunk.reverse());
+  }
+  return result;
+};
+
 
 // ********************************************************
 // DRAGGING FUNCTIONS

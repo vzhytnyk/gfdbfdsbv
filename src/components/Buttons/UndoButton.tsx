@@ -2,7 +2,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import { RootReducerState } from '@/global';
-import { StepBackwardOutlined } from '@ant-design/icons';
 import columnsActions from '@/redux/columns/columns.actions';
 import deckActions from '@/redux/deck/deck.actions';
 import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
@@ -17,10 +16,11 @@ function UndoButton() {
   const dispatch = useDispatch();
 
   // get gameMoves from redux
-  const { gamePreviousMoves, gamePaused } = useSelector(
-    ({ GameBoard }: RootReducerState) => ({
+  const { gamePreviousMoves, gamePaused, gameMode } = useSelector(
+    ({ GameBoard, GameConfig }: RootReducerState) => ({
       gamePreviousMoves: GameBoard.gamePreviousMoves,
       gamePaused: GameBoard.gamePaused,
+      gameMode: GameConfig.gameMode,
     })
   );
 
@@ -42,8 +42,8 @@ function UndoButton() {
           dispatch(deckActions.startUndoAnimation());
           setTimeout(() => {
             // call deck function to send back a flipped card to the deck pile
-            dispatch(deckActions.undoFlipDeckPile());
-          }, 600);
+            dispatch(deckActions.undoFlipDeckPile(cards));
+          }, 200);
           // flipped -> deck
         } else if (target.includes('goal')) {
           // goal pile -> deck
@@ -112,8 +112,8 @@ function UndoButton() {
         // flipped pile -> deck pile
         dispatch(deckActions.startRedoResetAnimation());
         setTimeout(() => {
-          dispatch(deckActions.undoResetDeck());
-        }, 600);
+          dispatch(deckActions.undoResetDeck(gameMode));
+        }, 200);
       }
 
       // remove the movement from the moves array

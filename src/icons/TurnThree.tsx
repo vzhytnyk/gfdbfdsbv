@@ -5,7 +5,10 @@ const TurnThree = (props: SVGProps<SVGSVGElement>) => (
     xmlns='http://www.w3.org/2000/svg'
     width={31}
     height={25}
-    fill='none'
+    fill='#9B69C9'
+    style={{
+      cursor: 'pointer',
+    }}
     {...props}
   >
     <rect
@@ -13,7 +16,6 @@ const TurnThree = (props: SVGProps<SVGSVGElement>) => (
       height={22.8}
       x={1.458}
       y={0.826}
-      fill='#9B69C9'
       rx={1.8}
     />
     <rect
@@ -30,7 +32,6 @@ const TurnThree = (props: SVGProps<SVGSVGElement>) => (
       height={22.8}
       x={7.808}
       y={0.826}
-      fill='#9B69C9'
       rx={1.8}
     />
     <rect
@@ -47,7 +48,6 @@ const TurnThree = (props: SVGProps<SVGSVGElement>) => (
       height={22.8}
       x={14.159}
       y={0.826}
-      fill='#9B69C9'
       rx={1.8}
     />
     <rect
