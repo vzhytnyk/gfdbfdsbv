@@ -18,7 +18,7 @@
 --card-flip-transition-time: 0.3s;
 
 /* --game-container-width: calc(100% - 325px); */
---game-container-width: 77.5%; /* 1280px */
+--game-container-width: 70%; /* 1280px */
 }
 
 * {
@@ -42,4 +42,14 @@ a {
 
 p {
   margin-bottom: 0;
+}
+
+.ant-col-3 {
+  display: block;
+  flex: 0 0 13.5%;
+  max-width: 13.5%;
+}
+
+.ant-col-offset-3 {
+  margin-left: 14.5%;
 }

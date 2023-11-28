@@ -236,9 +236,8 @@
 }
 
 .boardContainer {
-  width: 100%;
+  width: var(--game-container-width);
   height: 100%;
-  max-width: var(--game-container-width);
 }
 
 .adsContainer {

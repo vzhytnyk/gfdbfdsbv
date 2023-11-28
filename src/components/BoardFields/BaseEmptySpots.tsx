@@ -84,9 +84,13 @@ function BaseEmptySpots() {
 
   return (
     <div className={styles.baseEmptySpots} id='baseEmptySpots'>
-      <Row gutter={6} className={styles.boardDeckRowWrapper} align='middle'>
+      <Row
+        className={styles.boardDeckRowWrapper}
+        align='middle'
+        justify={'space-between'}
+      >
         {/* Deck and Flipped piles */}
-        <CardSpot ref={deckRef} offset={1} className={styles.deckCardSpot}>
+        <CardSpot ref={deckRef} className={styles.deckCardSpot}>
           {/* Button to reset deck */}
           <Button
             className={`${styles.redoDeckButton} ${
@@ -106,9 +110,13 @@ function BaseEmptySpots() {
         {/* top row of the game, includes the deck and the 4 goal spots */}
         <GameTopRow />
       </Row>
-      <Row gutter={6} align='middle' className={styles.gameColumnsWrapper}>
+      <Row
+        align='middle'
+        className={styles.gameColumnsWrapper}
+        justify={'space-between'}
+      >
         {/* Game Columns */}
-        <CardSpot offset={1} />
+        <CardSpot />
         <CardSpot />
         <CardSpot />
         <CardSpot />
