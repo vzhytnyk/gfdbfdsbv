@@ -1,6 +1,12 @@
 /* Base Empty Spots */
 .baseEmptySpots {
-  margin-left: 30px;
+  margin: 0px 10px;
+}
+
+@media screen and (width >= 1024px) {
+  .baseEmptySpots {
+    margin: 0 0 0 30px;
+  }
 }
 
 .deckCardSpot {

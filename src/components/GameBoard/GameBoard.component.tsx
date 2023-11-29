@@ -8,10 +8,8 @@ import { memo, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DropHandler from '@/components/CardMoveHandlers/DropHandlers/DropHandler.component';
 import BoardEmptySpots from '@/components/BoardFields/BaseEmptySpots';
-import GameColumnWrapper from '../BoardFields/GameColumnWrapper.component';
 import CustomDragLayer from '../CardMoveHandlers/DragHandlers/CustomDragLayer.component';
 import styles from './GameBoard.module.css';
-import GameTopRow from '../BoardFields/GameTopRow.component';
 
 function GameBoard() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 'use client';
 /* eslint-disable indent */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDragLayer } from 'react-dnd';
 import { useSelector } from 'react-redux';
 import { ExplicitAny, RootReducerState } from '@/global';
@@ -9,6 +9,7 @@ import CardFrame from '@/components/Cards/CardFrame';
 import CardImage from '@/components/Cards/CardImage';
 import SimplePile from '@/components/Piles/SimplePile.component';
 import styles from './DragHandlers.module.css';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 /**
  * Custom "layer" for the drag event
@@ -24,6 +25,30 @@ function CustomDragLayer() {
       isDragging: monitor.isDragging(),
     })
   );
+
+  const xxxs = useMediaQuery('(width >= 400px)');
+  const xxs = useMediaQuery('(width >= 600px)');
+  const xs = useMediaQuery('(width >= 800px)');
+  const sm = useMediaQuery('(width >= 1024px)');
+  const md = useMediaQuery('(width >= 1280px)');
+  const lg = useMediaQuery('(width >= 1440px)');
+  const xl = useMediaQuery('(width >= 1600px)');
+  const xxl = useMediaQuery('(width >= 1920px)');
+  const xxxl = useMediaQuery('(width >= 2256px)');
+
+  const getMarginByMedia = useCallback((): number => {
+    if (xxxl) return 55;
+    if (xxl) return 50;
+    if (xl) return 45;
+    if (lg) return 40;
+    if (md) return 35;
+    if (sm) return 30;
+    if (xs) return 25;
+    if (xxs) return 20;
+    if (xxxs) return 15;
+
+    return 10;
+  }, [xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl]);
 
   // get the cards that are dragging from the redux (can be from the deck or form the columns)
   const { cardDragging } = useSelector(
@@ -82,7 +107,7 @@ function CustomDragLayer() {
     return {
       transform,
       WebkitTransform: transform,
-      marginTop: '-30px',
+      marginTop: `-${getMarginByMedia()}px`,
     };
   };
 
