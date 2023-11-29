@@ -111,10 +111,6 @@ function GameBoard() {
   // ---------------------------------------------------------
   return (
     <DropHandler className={styles.mainPage}>
-      {/* current game status display (time and moves) */}
-      {/* <GamePlayInfo /> */}
-      <div style={{ height: '22px', width: '100%' }} />
-
       {/* empty spots */}
       <BoardEmptySpots />
       {/* preview of the card being dragged */}

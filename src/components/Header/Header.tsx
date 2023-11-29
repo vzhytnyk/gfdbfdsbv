@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { RootReducerState } from '@/global';
 import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
 import { useRouter } from 'next/navigation';
+import useTimer from '@/hooks/useTimer';
 const Header = () => {
   const router = useRouter();
   const { gameMode, gameMoves } = useSelector(
@@ -22,6 +23,9 @@ const Header = () => {
       gameMoves: GameBoard.gameMoves,
     })
   );
+
+  const { seconds, minutes, hours } = useTimer();
+
   const showUnsavedWarning = () => {
     return confirm('You have unsaved changes');
   };
@@ -49,9 +53,9 @@ const Header = () => {
 
   const getCardModeColor = (btnMode: GameModeTypes) => {
     if (gameMode === btnMode) {
-      return '#ffffff';
+      return '#9B69C9';
     }
-    return '#9B69C9';
+    return '#6E4197';
   };
 
   return (
@@ -92,7 +96,7 @@ const Header = () => {
           <NewButton />
         </div>
         <div className={styles.desktopInfoButton}>
-          <GamePlayInfo />
+          <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
           <RestartButton />
           <div
             style={{ margin: '0 10px', height: '28.4px' }}
@@ -113,7 +117,7 @@ const Header = () => {
       </div>
       <div className={styles.borderBottom} />
       <div className={styles.mobileInfoButton}>
-        <GamePlayInfo />
+        <GamePlayInfo seconds={seconds} hours={hours} minutes={minutes} />
         <RestartButton />
         <div
           style={{ margin: '0 10px', height: '28.4px' }}

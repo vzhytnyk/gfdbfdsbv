@@ -233,6 +233,7 @@
 .boardWithAdsContainer {
   display: flex;
   height: 100%;
+  padding-top: 22px;
 }
 
 .boardContainer {
