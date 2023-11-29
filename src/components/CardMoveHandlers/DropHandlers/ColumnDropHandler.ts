@@ -33,7 +33,10 @@ class ColumnDrop {
   }
 
   handleSendBack() {
+    // clear column's send back state
     this.dispatch(columnsActions.resetCardDragging());
+    // then reset the values at the deck redux
+    this.dispatch(deckActions.resetCardDragging());
   }
 
   /**

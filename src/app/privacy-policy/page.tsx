@@ -3,11 +3,7 @@ import styles from '@/app/typography.module.css';
 
 export default function PrivacyPolicy() {
   return (
-    <main
-      style={{
-        height: 'calc(100% - 57px)',
-      }}
-    >
+    <main>
       <div className={styles.container}>
         <PrivacyPolicyContent />
       </div>

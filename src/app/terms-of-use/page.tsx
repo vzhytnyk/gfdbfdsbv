@@ -3,11 +3,7 @@ import TermsOfUseContent from '@/components/TermsOfUse/TermsOfUseContent';
 
 export default function TermsOfUse() {
   return (
-    <main
-      style={{
-        height: 'calc(100% - 57px)',
-      }}
-    >
+    <main>
       <div className={styles.container}>
         <TermsOfUseContent />
       </div>
