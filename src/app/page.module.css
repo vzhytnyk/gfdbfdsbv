@@ -232,6 +232,7 @@
 
 .boardWithAdsContainer {
   display: flex;
+  justify-content: space-between;
   height: 100%;
   padding-top: 22px;
 }
@@ -242,8 +243,7 @@
 }
 
 .adsContainer {
-  margin-top: 1.375em;
-  margin-right: 1.875em;
+  margin: 0 1.25em 0 1.25em;
   width: 295px;
 }
 
@@ -254,30 +254,31 @@
 
 .adUnitBig {
   height: 595px;
-  background: white;
-}
-
-.adUnitSm {
-  margin-top: 24px;
-  height: 167px;
-  background: white;
 }
 
 @media (max-width: 900px) {
   .boardWithAdsContainer {
     flex-flow: column;
+    --game-container-width: 100%;
   }
   .boardContainer {
     max-width: 100%;
-    margin-left: 0.625em;
   }
-  .adUnitSm {
-    display: none;
+  .adsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 30px;
+    gap: 24px;
   }
-}
-
-@media (max-height: 870px) {
+  .adUnitBig,
   .adUnitSm {
+    width: 320px;
+    height: fit-content;
+    min-height: 190px;
+  }
+  .adUnitBig {
     display: none;
   }
 }

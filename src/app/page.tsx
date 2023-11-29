@@ -5,6 +5,7 @@ import gameConfigActions from '@/redux/gameConfig/gameConfig.actions';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './page.module.css';
+import AdsBlock from '@/components/Ads/AdsBlock';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -18,20 +19,9 @@ export default function Home() {
         <div className={styles.boardContainer}>
           <GameBoard />
         </div>
-        {/* <div className={styles.adsContainer}>
-          <AdUnit
-            className={styles.adUnitBig}
-            publisherId={process.env.NEXT_PUBLIC_GOOGLE_PUBLISHER_ID}
-            slotId={process.env.NEXT_PUBLIC_GOOGLE_SLOT_ID_BIG}
-            layout='display'
-          />
-          <AdUnit
-            className={styles.adUnitSm}
-            publisherId={process.env.NEXT_PUBLIC_GOOGLE_PUBLISHER_ID}
-            slotId={process.env.NEXT_PUBLIC_GOOGLE_SLOT_ID_SMALL}
-            layout='display'
-          />
-        </div> */}
+        <div className={styles.adsContainer}>
+          <AdsBlock />
+        </div>
       </div>
       <GameInfo />
     </main>

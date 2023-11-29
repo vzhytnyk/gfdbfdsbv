@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Card.module.css';
+import Image from 'next/image';
 
 interface CardImageProps {
   image?: string;
@@ -25,7 +26,10 @@ const CardImage = ({
       onClick={handleOnClick}
       className={`${styles.cardDefault} ${additionalClassName}`}
     >
-      <img
+      <Image
+        width={200}
+        height={300}
+        priority
         className={styles.cardImage}
         src={`/images/${directory}/${image}`}
         alt=''

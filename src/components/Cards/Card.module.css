@@ -140,7 +140,6 @@
 .threeCardModeContainer .animationStyleUndo:nth-last-child(3n + 1) {
   animation: threeCardAnimationFirstUndo 0.2s forwards;
 }
-
 .threeCardModeContainer .animationStyleUndo:nth-last-child(3n + 2) {
   animation: threeCardAnimationPreviousUndo 0.2s forwards;
 }
