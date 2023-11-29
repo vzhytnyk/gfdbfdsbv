@@ -2,15 +2,19 @@
 import { useSelector } from 'react-redux';
 import styles from './GamePlayInfo.module.css';
 import { RootReducerState } from '@/global';
-import useTimer from '@/hooks/useTimer';
 
-const GamePlayInfo = () => {
+interface GamePlayInfoProps {
+  seconds: number;
+  minutes: number;
+  hours: number;
+}
+
+const GamePlayInfo = ({ seconds, minutes, hours }: GamePlayInfoProps) => {
   const { gameMoves } = useSelector(({ GameBoard }: RootReducerState) => ({
     gameMoves: GameBoard.gameMoves,
   }));
 
   // use the timer to get the current time units
-  const { seconds, minutes, hours } = useTimer();
 
   const gameScore = gameMoves * 5;
 

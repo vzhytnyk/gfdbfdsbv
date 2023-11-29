@@ -26,14 +26,23 @@
   display: flex !important;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 .redoDeckIcon svg {
   width: 70%;
   height: 70%;
 }
 
+.redoDeckIcon:hover, 
+.redoDeckIcon:focus,
+.redoDeckIcon:active {
+  color: black;
+  border-color: transparent;
+  background: transparent;
+}
+
 .redoDeckButton:hover {
-  transform: scale(1.4);
+  transform: scale(1.2);
 }
 
 .shakeAnimationButton {
