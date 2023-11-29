@@ -8,6 +8,7 @@ import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import CardFlippable from '../Cards/CardFlippable';
 import styles from './Piles.module.css';
 import { GameModeTypes } from '@/redux/gameConfig/gameConfig.types';
+import { FLIP_ANIMATION_TIME_MS } from '@/utils/contants';
 
 /**
  * Component that consists of a pile (3d) of unflipped cards that can be flipped one by one (with a translation)
@@ -21,6 +22,7 @@ function DeckPile() {
     lastHint,
     startRedoAnimation,
     startRedoResetAnimation,
+    startUndoAnimation,
     gameMode,
   } = useSelector(({ Deck, GameBoard, GameConfig }: RootReducerState) => {
     const gameHints = GameBoard.gameHints;
@@ -32,6 +34,7 @@ function DeckPile() {
       lastHint: lastIndex >= 0 ? gameHints[lastIndex] : undefined,
       startRedoAnimation: Deck.startRedoAnimation,
       startRedoResetAnimation: Deck.startRedoResetAnimation,
+      startUndoAnimation: Deck.startUndoAnimation,
       gameMode: GameConfig.gameMode as GameModeTypes,
     };
   });
@@ -54,7 +57,7 @@ function DeckPile() {
           cards: deckPile.splice(cardsToRegisterInMove()) || [],
         })
       );
-    }, 200);
+    }, FLIP_ANIMATION_TIME_MS);
   };
 
   const getRedoByGameMode = (index: number) => {
@@ -90,7 +93,9 @@ function DeckPile() {
     <SimplePile
       pileId='deckPile'
       pileCards={getCards()}
-      pileClassName={`${styles.deckPileIndex} ${styles.flippedPile}`}
+      pileClassName={`${styles.deckPileIndex} ${styles.flippedPile} ${
+        startUndoAnimation ? styles.deckPileUndoAnimation : ''
+      }`}
       insideClassName={`${styles.columnPile} deckPileMobile`}
     />
   );

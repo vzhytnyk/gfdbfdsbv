@@ -25,7 +25,7 @@ function SimplePile({
   return (
     <Col id={pileId} span={3} offset={offset} className={pileClassName}>
       <div className={insideClassName}>
-        <div className={`${styles.cardPileContainer} ${cardsListClassName}`}>
+        <div className={`${styles.cardPileContainer} ${cardsListClassName || ""}`}>
           {pileCards}
         </div>
       </div>

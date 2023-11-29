@@ -1,0 +1,1 @@
+export const FLIP_ANIMATION_TIME_MS = 200;

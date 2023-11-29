@@ -106,61 +106,59 @@
   background: #6e4197;
 }
 
-.threeCardModeContainer .cardContainer, .signCardModeContainer .cardContainer {
+.threeCardModeContainer .cardContainer,
+.signCardModeContainer .cardContainer {
+  width: 100%;
   margin-top: 0px !important;
 }
 
-.threeCardModeContainer .lastInRow .cardAspectRatio {
-  animation: threeCardAnimationFirst 0.2s forwards ease-in-out;
+.threeCardModeContainer .lastInRow {
+  animation: threeCardAnimationFirst 0.1s forwards ease-in;
 }
-.threeCardModeContainer .prevInRow .cardAspectRatio {
-  animation: threeCardAnimationPrevious 0.2s forwards ease-in-out;
+.threeCardModeContainer .prevInRow {
+  animation: threeCardAnimationPrevious 0.1s forwards ease-in;
 }
 
 @keyframes threeCardAnimationFirst {
   from {
-    left: 0px;
+    margin-left: 0px;
   }
   to {
-    left: 40px;
+    margin-left: 40px;
   }
 }
 
 @keyframes threeCardAnimationPrevious {
   from {
-    left: 0px;
+    margin-left: 0px;
   }
   to {
-    left: 20px;
+    margin-left: 20px;
   }
 }
 
-.threeCardModeContainer
-  .animationStyleUndo:nth-last-child(3n + 1)
-  .cardAspectRatio {
+.threeCardModeContainer .animationStyleUndo:nth-last-child(3n + 1) {
   animation: threeCardAnimationFirstUndo 0.2s forwards;
 }
 
-.threeCardModeContainer
-  .animationStyleUndo:nth-last-child(3n + 2)
-  .cardAspectRatio {
+.threeCardModeContainer .animationStyleUndo:nth-last-child(3n + 2) {
   animation: threeCardAnimationPreviousUndo 0.2s forwards;
 }
 
 @keyframes threeCardAnimationFirstUndo {
   from {
-    left: 40px;
+    margin-left: 40px;
   }
   to {
-    left: 0px;
+    margin-left: 0px;
   }
 }
 
 @keyframes threeCardAnimationPreviousUndo {
   from {
-    left: 20px;
+    margin-left: 20px;
   }
   to {
-    left: 0px;
+    margin-left: 0px;
   }
 }

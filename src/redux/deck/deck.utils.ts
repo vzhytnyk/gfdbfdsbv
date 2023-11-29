@@ -110,7 +110,6 @@ export const resetDeck = (
     ...card,
     flipped: targetId === "flippedPile"
   }));
-  console.log(gameMode)
   if (gameMode === "turnThree") {
     //reverse every 3 items for turn three mode
     final = reverseChunks(final, 3);

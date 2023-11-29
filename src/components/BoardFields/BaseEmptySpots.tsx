@@ -10,6 +10,7 @@ import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import styles from './BoardFileds.module.css';
 import GameColumnWrapper from './GameColumnWrapper.component';
 import GameTopRow from './GameTopRow.component';
+import { FLIP_ANIMATION_TIME_MS } from '@/utils/contants';
 
 /**
  * Base Layout with all the empty card spots
@@ -68,7 +69,7 @@ function BaseEmptySpots() {
   const handleResetDeck = () => {
     // resets the deck
     dispatch(deckActions.startUndoAnimation());
-    setTimeout(() => dispatch(deckActions.resetDeck(gameMode)), 200);
+    setTimeout(() => dispatch(deckActions.resetDeck(gameMode)), FLIP_ANIMATION_TIME_MS);
     // adds one movement to the game
     dispatch(
       gameBoardActions.addGameMove({
@@ -99,7 +100,7 @@ function BaseEmptySpots() {
             }`}
             onClick={handleResetDeck}
           >
-            <RedoOutlined />
+            <RedoOutlined className={styles.redoDeckIcon}/>
           </Button>
         </CardSpot>
         <CardSpot ref={flippedRef} />

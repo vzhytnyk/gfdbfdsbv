@@ -8,6 +8,7 @@ import gameBoardActions from '@/redux/gameBoard/gameBoard.actions';
 import goalActions from '@/redux/goal/goal.actions';
 import styles from './Buttons.module.css';
 import UndoIcon from '@/icons/UndoIcon';
+import { FLIP_ANIMATION_TIME_MS } from '@/utils/contants';
 
 /**
  * Option to undo a game move
@@ -43,7 +44,7 @@ function UndoButton() {
           setTimeout(() => {
             // call deck function to send back a flipped card to the deck pile
             dispatch(deckActions.undoFlipDeckPile(cards));
-          }, 200);
+          }, FLIP_ANIMATION_TIME_MS);
           // flipped -> deck
         } else if (target.includes('goal')) {
           // goal pile -> deck
@@ -113,7 +114,7 @@ function UndoButton() {
         dispatch(deckActions.startRedoResetAnimation());
         setTimeout(() => {
           dispatch(deckActions.undoResetDeck(gameMode));
-        }, 200);
+        }, FLIP_ANIMATION_TIME_MS);
       }
 
       // remove the movement from the moves array
