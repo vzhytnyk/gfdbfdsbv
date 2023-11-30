@@ -9,6 +9,7 @@ interface CardFrameProps {
   children?: ReactNode; // children
   shake?: boolean;
   increase?: boolean;
+  cardId?: number;
 }
 
 const CardFrame = (
@@ -19,12 +20,14 @@ const CardFrame = (
     shake,
     increase,
     children,
+    cardId,
   }: CardFrameProps,
   ref: ExplicitAny
 ) => {
   return (
     <div
       ref={ref}
+      id={cardId ? `card-${cardId}` : undefined}
       className={`${styles.cardContainer} ${cardContainerClassName} ${
         shake ? styles.shakeAnimation : ''
       } ${increase ? styles.increaseAnimation : ''}`}

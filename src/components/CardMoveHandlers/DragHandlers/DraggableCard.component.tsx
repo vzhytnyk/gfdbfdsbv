@@ -93,6 +93,7 @@ function DraggableCard({
   return (
     <CardFrame
       ref={drag}
+      cardId={card.id}
       onDoubleClick={onDoubleClick}
       cardContainerClassName={`${index > 0 ? styles.cardContainerColumns : ''} ${className || ''}`}
       shake={shake}

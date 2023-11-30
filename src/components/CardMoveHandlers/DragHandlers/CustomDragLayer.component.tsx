@@ -63,6 +63,7 @@ function CustomDragLayer() {
     const cardsArray = cardDragging.map((card: CardType) => {
       return (
         <CardFrame
+          cardId={card.id}
           key={`cardframedraggable_${card.id}`}
           cardContainerClassName={styles.cardContainerColumns}
         >

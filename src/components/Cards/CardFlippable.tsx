@@ -15,6 +15,7 @@ interface CardFlippableProps {
   shake?: boolean;
   increase?: boolean;
   redoAnimation?: boolean;
+  cardId: number;
 }
 
 /**
@@ -31,6 +32,7 @@ function CardFlippable(
     shake,
     increase,
     redoAnimation,
+    cardId,
   }: CardFlippableProps,
   ref: ExplicitAny
 ) {
@@ -62,6 +64,7 @@ function CardFlippable(
       cardContainerClassName={className}
       shake={shake}
       increase={increase}
+      cardId={cardId}
     >
       <div
         className={styles.cardFlipContainer}
