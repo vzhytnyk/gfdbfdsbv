@@ -69,7 +69,10 @@ function BaseEmptySpots() {
   const handleResetDeck = () => {
     // resets the deck
     dispatch(deckActions.startUndoAnimation());
-    setTimeout(() => dispatch(deckActions.resetDeck(gameMode)), FLIP_ANIMATION_TIME_MS);
+    setTimeout(
+      () => dispatch(deckActions.resetDeck(gameMode)),
+      FLIP_ANIMATION_TIME_MS
+    );
     // adds one movement to the game
     dispatch(
       gameBoardActions.addGameMove({
@@ -100,7 +103,7 @@ function BaseEmptySpots() {
             }`}
             onClick={handleResetDeck}
           >
-            <RedoOutlined className={styles.redoDeckIcon}/>
+            <RedoOutlined className={styles.redoDeckIcon} />
           </Button>
         </CardSpot>
         <CardSpot ref={flippedRef} />
@@ -113,7 +116,8 @@ function BaseEmptySpots() {
         <GameTopRow />
       </Row>
       <Row
-        align='middle'
+        id='game-column-wrapper'
+        align='top'
         className={styles.gameColumnsWrapper}
         justify={'space-between'}
       >

@@ -76,6 +76,7 @@ function DeckPile() {
       lastHint.target === undefined;
     const cardsArray = deckPile?.map((card: CardType, index: number) => (
       <CardFlippable
+        cardId={card.id}
         key={`deck_${card.id}`}
         image={card.image}
         increase={increase}

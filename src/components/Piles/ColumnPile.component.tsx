@@ -61,6 +61,7 @@ function ColumnPile({ offset, columnCards, columnId }: ColumnPileProps) {
       // if it is not flipped, then the card can be flipped (but this flip is made automatically, when there are no more cards over it)
       return (
         <CardFlippable
+          cardId={card.id}
           disabled={true}
           className={`${index > 0 ? styles.cardContainerColumns : ''}`}
           key={`${columnId}_flippable_${card.id}`}
