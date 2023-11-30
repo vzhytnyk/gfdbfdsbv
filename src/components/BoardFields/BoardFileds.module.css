@@ -39,7 +39,7 @@
   height: 70%;
 }
 
-.redoDeckIcon:hover, 
+.redoDeckIcon:hover,
 .redoDeckIcon:focus,
 .redoDeckIcon:active {
   color: black;
@@ -101,4 +101,5 @@
   padding-bottom: 15%;
   position: relative;
   margin: 0 !important;
+  transition: all 0.2s;
 }
